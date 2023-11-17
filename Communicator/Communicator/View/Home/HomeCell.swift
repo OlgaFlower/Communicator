@@ -1,5 +1,5 @@
 //
-//  HomeCell.swift
+//  FeedCell.swift
 //  Communicator
 //
 //  Created by Olha Bereziuk on 16.11.23.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct HomeCell: View {
+struct FeedCell: View {
     
-    private let imageFrame = 36.0
+    private let userImgWidth = 36.0
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -55,9 +55,9 @@ struct HomeCell: View {
             Image("avatar1")
                 .resizable()
                 .scaledToFill()
-                .frame(width: self.imageFrame, height: self.imageFrame)
+                .frame(width: self.userImgWidth, height: self.userImgWidth)
                 .clipped()
-                .cornerRadius(self.imageFrame / 2)
+                .clipShape(Circle())
             
             Text("Maruna")
                 .font(.system(size: 14, weight: .semibold))
@@ -65,7 +65,7 @@ struct HomeCell: View {
     }
     
     private var postImage: some View {
-        Image("item1")
+        Image("picture1")
             .resizable()
             .scaledToFill()
             .frame(maxHeight: 400)
@@ -88,5 +88,5 @@ struct HomeCell: View {
 }
 
 #Preview {
-    HomeCell()
+    FeedCell()
 }

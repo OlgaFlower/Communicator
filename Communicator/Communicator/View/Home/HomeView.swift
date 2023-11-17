@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  FeedView.swift
 //  Communicator
 //
 //  Created by Olha Bereziuk on 16.11.23.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct FeedView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 32) {
                 ForEach(0..<10) { _ in
-                    HomeCell()
+                    FeedCell()
                 }
                 .padding(.top)
             }
@@ -21,5 +21,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    FeedView()
 }

@@ -18,6 +18,12 @@
 		42BAAEC22B064A80005680FD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAEC12B064A80005680FD /* ProfileView.swift */; };
 		42BAAEC42B064AB8005680FD /* UploadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAEC32B064AB8005680FD /* UploadPostView.swift */; };
 		42BAAEC62B0666C9005680FD /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAEC52B0666C9005680FD /* HomeCell.swift */; };
+		42BAAEC82B07B7E2005680FD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAEC72B07B7E2005680FD /* SearchBar.swift */; };
+		42BAAECA2B07E597005680FD /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAEC92B07E597005680FD /* PostGridView.swift */; };
+		42BAAECC2B07EB37005680FD /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAECB2B07EB37005680FD /* UserCell.swift */; };
+		42BAAECE2B07EB45005680FD /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAECD2B07EB45005680FD /* UserListView.swift */; };
+		42BAAED02B080020005680FD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAECF2B080020005680FD /* Extensions.swift */; };
+		42BAAED22B080BF4005680FD /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAED12B080BF4005680FD /* NotificationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,12 @@
 		42BAAEC12B064A80005680FD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		42BAAEC32B064AB8005680FD /* UploadPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostView.swift; sourceTree = "<group>"; };
 		42BAAEC52B0666C9005680FD /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		42BAAEC72B07B7E2005680FD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		42BAAEC92B07E597005680FD /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
+		42BAAECB2B07EB37005680FD /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		42BAAECD2B07EB45005680FD /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		42BAAECF2B080020005680FD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		42BAAED12B080BF4005680FD /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +108,7 @@
 		42BAAEA62B05F783005680FD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				42BAAEB42B05F8FC005680FD /* Common */,
+				42BAAEB42B05F8FC005680FD /* CommonViews */,
 				42BAAEB32B05F8DB005680FD /* Authentication */,
 				42BAAEB22B05F8C5005680FD /* Notifications */,
 				42BAAEB12B05F8B5005680FD /* Search */,
@@ -129,6 +141,7 @@
 		42BAAEA92B05F7BF005680FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				42BAAECF2B080020005680FD /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -178,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				42BAAEBD2B064A40005680FD /* SearchView.swift */,
+				42BAAEC72B07B7E2005680FD /* SearchBar.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -186,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				42BAAEBF2B064A65005680FD /* NotificationsView.swift */,
+				42BAAED12B080BF4005680FD /* NotificationCell.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -197,11 +212,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		42BAAEB42B05F8FC005680FD /* Common */ = {
+		42BAAEB42B05F8FC005680FD /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				42BAAEC92B07E597005680FD /* PostGridView.swift */,
+				42BAAECB2B07EB37005680FD /* UserCell.swift */,
+				42BAAECD2B07EB45005680FD /* UserListView.swift */,
 			);
-			path = Common;
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 		42BAAEB52B05F987005680FD /* Feed */ = {
@@ -309,8 +327,14 @@
 				42BAAEBA2B06499D005680FD /* MainTabView.swift in Sources */,
 				42BAAEC42B064AB8005680FD /* UploadPostView.swift in Sources */,
 				42BAAEC22B064A80005680FD /* ProfileView.swift in Sources */,
+				42BAAECA2B07E597005680FD /* PostGridView.swift in Sources */,
+				42BAAECC2B07EB37005680FD /* UserCell.swift in Sources */,
+				42BAAEC82B07B7E2005680FD /* SearchBar.swift in Sources */,
 				42BAAEC02B064A65005680FD /* NotificationsView.swift in Sources */,
 				42BAAEC62B0666C9005680FD /* HomeCell.swift in Sources */,
+				42BAAECE2B07EB45005680FD /* UserListView.swift in Sources */,
+				42BAAED22B080BF4005680FD /* NotificationCell.swift in Sources */,
+				42BAAED02B080020005680FD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
