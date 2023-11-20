@@ -30,14 +30,13 @@ struct LoginView: View {
                 
                 VStack {
                     
-                    // logo
                     Text("Communicator")
                         .font(.system(size: 36, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                         .padding(.top, 80)
                     
                     VStack(spacing: 20) {
-                        // email
+                        
                         CustomTextField(
                             text: $email,
                             placeholder: Text("Email"),
@@ -49,7 +48,6 @@ struct LoginView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                         
-                        // password
                         CustomTextField(
                             text: $password,
                             placeholder: Text("Password"),
@@ -61,7 +59,6 @@ struct LoginView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                         
-                        // forgot password
                         HStack {
                             Spacer()
                             
@@ -76,7 +73,6 @@ struct LoginView: View {
                             })
                         }
                         
-                        // sign in
                         Button(action: {}, label: {
                             Text("Sign In")
                                 .font(.headline)
@@ -87,10 +83,11 @@ struct LoginView: View {
                                 .padding()
                         })
                         Spacer()
-                        // go to sign up
-                        Button(action: {
-                            
-                        }, label: {
+                        
+                        NavigationLink {
+                            RegistrationView()
+                                .navigationBarBackButtonHidden()
+                        } label: {
                             HStack {
                                 Text("Don't have an account?")
                                     .font(.system(size: 14))
@@ -98,8 +95,8 @@ struct LoginView: View {
                                     .font(.system(size: 14, weight: .semibold))
                             }
                             .foregroundColor(.white)
-                        })
-                        .padding(.bottom, 32)
+                        }
+                        .padding(.bottom, 16)
                     }
                     
                 }
