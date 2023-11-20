@@ -68,12 +68,10 @@ struct UploadPostView: View {
 }
 
 extension UploadPostView {
-    
     func loadImage() {
         guard let selectedImage = self.selectedImage else { return }
         self.postImage = Image(uiImage: selectedImage)
     }
-    
 }
 
 #Preview {
