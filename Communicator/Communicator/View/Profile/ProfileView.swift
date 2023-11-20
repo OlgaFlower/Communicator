@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    // MARK: - Body
     var body: some View {
         
         ScrollView {
@@ -20,6 +21,7 @@ struct ProfileView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     ProfileView()
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FeedView: View {
+    // MARK: - Body
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 32) {
@@ -20,6 +21,7 @@ struct FeedView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     FeedView()
 }

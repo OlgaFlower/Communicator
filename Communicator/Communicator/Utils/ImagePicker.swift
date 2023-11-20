@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Upload images from device
 struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?

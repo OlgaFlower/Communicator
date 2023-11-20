@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NotificationsView: View {
     
+    // MARK: - Body
     var body: some View {
         
         ScrollView {
@@ -22,6 +23,7 @@ struct NotificationsView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     NotificationsView()
 }

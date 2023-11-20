@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UploadPostView: View {
     
+    // MARK: - Properties
     @State private var selectedImage: UIImage?
     @State var postImage: Image?
     @State var captionText = ""
@@ -17,25 +18,12 @@ struct UploadPostView: View {
     private let addButtonWidth = 112.0
     private var shareButtonWidth = UIScreen.main.bounds.width * 0.8
     
+    // MARK: - Body
     var body: some View {
         
         VStack {
             if self.postImage == nil {
-                Button(action: {
-                    self.imagePickerPresented.toggle()
-                }, label: {
-                    Image("add")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: self.addButtonWidth, height: self.addButtonWidth)
-                        .clipped()
-                        .padding(.top, 62)
-                }).sheet(
-                    isPresented: $imagePickerPresented,
-                    onDismiss: self.loadImage,
-                    content: {
-                    ImagePicker(image: $selectedImage)
-                })
+                self.showAddButton()
             } else if let image = self.postImage {
                 
                 HStack(alignment: .top) {
@@ -45,28 +33,55 @@ struct UploadPostView: View {
                         .frame(width: 96, height: 96)
                         .clipped()
                     
-                    TextField("Enter your caption..", text: $captionText)
+                    self.captionTextfieldView
                 }
                 .padding()
                 
-                Button(action: {
-                    
-                }, label: {
-                    Text("Share")
-                        .font(.system(size: 16.0, weight: .semibold))
-                        .frame(width: self.shareButtonWidth, height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(5.0)
-                        .foregroundColor(.white)
-                })
-                .padding()
+                self.showShareButtonView()
             }
-            
             Spacer()
         }
     }
+    
+    // MARK: - Views
+    private func showAddButton() -> some View {
+        Button(action: {
+            self.imagePickerPresented.toggle()
+        }, label: {
+            Image("add")
+                .resizable()
+                .scaledToFill()
+                .frame(width: self.addButtonWidth, height: self.addButtonWidth)
+                .clipped()
+                .padding(.top, 62)
+        }).sheet(
+            isPresented: $imagePickerPresented,
+            onDismiss: self.loadImage,
+            content: {
+                ImagePicker(image: $selectedImage)
+            })
+    }
+    
+    private var captionTextfieldView: some View {
+        TextField("Enter your caption..", text: $captionText)
+    }
+    
+    private func showShareButtonView() -> some View {
+        Button(action: {
+            
+        }, label: {
+            Text("Share")
+                .font(.system(size: 16.0, weight: .semibold))
+                .frame(width: self.shareButtonWidth, height: 50)
+                .background(Color.blue)
+                .cornerRadius(5.0)
+                .foregroundColor(.white)
+        })
+        .padding()
+    }
 }
 
+// MARK: - Extension
 extension UploadPostView {
     func loadImage() {
         guard let selectedImage = self.selectedImage else { return }
@@ -74,6 +89,7 @@ extension UploadPostView {
     }
 }
 
+// MARK: - Preview
 #Preview {
     UploadPostView()
 }

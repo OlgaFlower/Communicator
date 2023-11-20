@@ -25,117 +25,144 @@ struct RegistrationView: View {
     var body: some View {
         
         ZStack {
-            LinearGradient(
-                gradient: Gradient(
-                    colors: [.cyan, .indigo, .indigo, .purple]
-                ),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            self.linearGradient
             
             VStack {
-                
-                if let image = self.image {
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                        .padding(.vertical, 32)
-                } else {
-                    Button(action: {
-                        self.imagePickerPresented.toggle()
-                    }, label: {
-                        Image("add")
-                            .renderingMode(.template)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(.white)
-                            .padding(.vertical, 32)
-                    })
-                    .sheet(
-                        isPresented: $imagePickerPresented,
-                        onDismiss: self.loadImage,
-                        content: {
-                            ImagePicker(image: $selectedImage)
-                    })
-                }
+                self.imageView
                 
                 VStack(spacing: 20) {
-                    
-                    CustomTextField(
-                        text: $email,
-                        placeholder: Text("Email"),
-                        iconName: "envelope"
-                    )
-                    .padding()
-                    .background(Color(.init(white: 1, alpha: 0.15)))
-                    .cornerRadius(10.0)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 32)
-                    
-                    CustomTextField(
-                        text: $email,
-                        placeholder: Text("Username"),
-                        iconName: "person"
-                    )
-                    .padding()
-                    .background(Color(.init(white: 1, alpha: 0.15)))
-                    .cornerRadius(10.0)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 32)
-                    
-                    CustomTextField(
-                        text: $email,
-                        placeholder: Text("Full Name"),
-                        iconName: "person"
-                    )
-                    .padding()
-                    .background(Color(.init(white: 1, alpha: 0.15)))
-                    .cornerRadius(10.0)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 32)
-                    
-                    CustomTextField(
-                        text: $password,
-                        placeholder: Text("Password"),
-                        iconName: "lock"
-                    )
-                    .padding()
-                    .background(Color(.init(white: 1, alpha: 0.15)))
-                    .cornerRadius(10.0)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 32)
-                    
-                    Button(action: {}, label: {
-                        Text("Sign Up")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: self.buttonWidth, height: 50)
-                            .background(Color(.accent))
-                            .clipShape(Capsule())
-                            .padding()
-                    })
-                    
+                    self.emailField
+                    self.usernameField
+                    self.fullNameField
+                    self.passwordField
+                    self.signUpButtonView
                     Spacer()
-                    
-                    Button(action: {
-                        mode.wrappedValue.dismiss()
-                    }, label: {
-                        HStack {
-                            Text("Already have an account?")
-                                .font(.system(size: 14))
-                            Text("Sign In")
-                                .font(.system(size: 14, weight: .semibold))
-                        }
-                        .foregroundColor(.white)
-                    })
-                    .padding(.bottom, 16)
+                    self.signInField
                 }
             }
         }
+    }
+    
+    // MARK: - Views
+    private var linearGradient: some View {
+        LinearGradient(
+            gradient: Gradient(
+                colors: [.cyan, .indigo, .indigo, .purple]
+            ),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        .ignoresSafeArea()
+    }
+    
+    private var imageView: some View {
+        Group {
+            if let image = self.image {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 100)
+                    .clipShape(Circle())
+                    .padding(.vertical, 32)
+            } else {
+                Button(action: {
+                    self.imagePickerPresented.toggle()
+                }, label: {
+                    Image("add")
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 32)
+                })
+                .sheet(
+                    isPresented: $imagePickerPresented,
+                    onDismiss: self.loadImage,
+                    content: {
+                        ImagePicker(image: $selectedImage)
+                    })
+            }
+        }
+    }
+    
+    private var emailField: some View {
+        CustomTextField(
+            text: $email,
+            placeholder: Text("Email"),
+            iconName: "envelope"
+        )
+        .padding()
+        .background(Color(.init(white: 1, alpha: 0.15)))
+        .cornerRadius(10.0)
+        .foregroundColor(.white)
+        .padding(.horizontal, 32)
+    }
+    
+    private var usernameField: some View {
+        CustomTextField(
+            text: $email,
+            placeholder: Text("Username"),
+            iconName: "person"
+        )
+        .padding()
+        .background(Color(.init(white: 1, alpha: 0.15)))
+        .cornerRadius(10.0)
+        .foregroundColor(.white)
+        .padding(.horizontal, 32)
+    }
+    
+    private var fullNameField: some View {
+        CustomTextField(
+            text: $email,
+            placeholder: Text("Full Name"),
+            iconName: "person"
+        )
+        .padding()
+        .background(Color(.init(white: 1, alpha: 0.15)))
+        .cornerRadius(10.0)
+        .foregroundColor(.white)
+        .padding(.horizontal, 32)
+    }
+    
+    private var passwordField: some View {
+        CustomTextField(
+            text: $password,
+            placeholder: Text("Password"),
+            iconName: "lock"
+        )
+        .padding()
+        .background(Color(.init(white: 1, alpha: 0.15)))
+        .cornerRadius(10.0)
+        .foregroundColor(.white)
+        .padding(.horizontal, 32)
+    }
+    
+    private var signUpButtonView: some View {
+        Button(action: {}, label: {
+            Text("Sign Up")
+                .font(.headline)
+                .foregroundColor(.white)
+                .frame(width: self.buttonWidth, height: 50)
+                .background(Color(.accent))
+                .clipShape(Capsule())
+                .padding()
+        })
+    }
+    
+    private var signInField: some View {
+        Button(action: {
+            mode.wrappedValue.dismiss()
+        }, label: {
+            HStack {
+                Text("Already have an account?")
+                    .font(.system(size: 14))
+                Text("Sign In")
+                    .font(.system(size: 14, weight: .semibold))
+            }
+            .foregroundColor(.white)
+        })
+        .padding(.bottom, 16)
     }
 }
 

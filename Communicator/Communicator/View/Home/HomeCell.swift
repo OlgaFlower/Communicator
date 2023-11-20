@@ -9,15 +9,16 @@ import SwiftUI
 
 struct FeedCell: View {
     
+    // MARK: - Properties
     private let userImgWidth = 36.0
     
+    // MARK: - Body
     var body: some View {
+        
         VStack(alignment: .leading) {
-            
-            self.userInfo
+            self.userInfoView
             .padding([.leading, .bottom], 8)
-            
-            self.postImage
+            self.postImageView
             
             HStack(spacing: 16) {
                 self.makeButton(iconName: "heart")
@@ -27,30 +28,14 @@ struct FeedCell: View {
             .padding(.leading, 4)
             .foregroundColor(.black)
             
-            // caption
-            Text("3 likes")
-                .font(.system(size: 14, weight: .semibold))
-                .padding(.leading, 8)
-                .padding(.bottom, 2)
-            
-            HStack {
-                Text("Maruna")
-                    .font(.system(size: 14, weight: .semibold))
-                +
-                Text(" Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.")
-                    .font(.system(size: 15))
-            }
-            .padding(.horizontal, 8)
-            
-            Text("2d")
-                .font(.system(size: 14))
-                .foregroundColor(.gray)
-                .padding(.leading, 8)
-                .padding(.top, 4)
+            self.likesView
+            self.postDescriptionView
+            self.postAgeView
         }
     }
     
-    private var userInfo: some View {
+    // MARK: - Views
+    private var userInfoView: some View {
         HStack {
             Image("avatar1")
                 .resizable()
@@ -64,7 +49,7 @@ struct FeedCell: View {
         }
     }
     
-    private var postImage: some View {
+    private var postImageView: some View {
         Image("picture1")
             .resizable()
             .scaledToFill()
@@ -82,11 +67,37 @@ struct FeedCell: View {
                 .frame(width: 20, height: 20)
                 .font(.system(size: 20))
                 .padding(4)
-            
         }
+    }
+    
+    private var likesView: some View {
+        Text("3 likes")
+            .font(.system(size: 14, weight: .semibold))
+            .padding(.leading, 8)
+            .padding(.bottom, 2)
+    }
+    
+    private var postDescriptionView: some View {
+        HStack {
+            Text("Maruna")
+                .font(.system(size: 14, weight: .semibold))
+            +
+            Text(" Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.")
+                .font(.system(size: 15))
+        }
+        .padding(.horizontal, 8)
+    }
+    
+    private var postAgeView: some View {
+        Text("2d")
+            .font(.system(size: 14))
+            .foregroundColor(.gray)
+            .padding(.leading, 8)
+            .padding(.top, 4)
     }
 }
 
+// MARK: - Preview
 #Preview {
     FeedCell()
 }

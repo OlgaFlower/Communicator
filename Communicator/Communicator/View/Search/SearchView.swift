@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SearchView: View {
     
+    // MARK: - Propereties
     @State var searchText = ""
     @State var inSearchMode = false
     
+    // MARK: - Body
     var body: some View {
         
         ScrollView {
@@ -29,6 +31,7 @@ struct SearchView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     SearchView()
 }

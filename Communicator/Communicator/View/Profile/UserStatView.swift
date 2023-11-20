@@ -9,9 +9,11 @@ import SwiftUI
 
 struct UserStatView: View {
     
+    // MARK: - Properties
     let value: Int
     let title: String
     
+    // MARK: - Body
     var body: some View {
         
         VStack {
@@ -24,7 +26,7 @@ struct UserStatView: View {
     }
 }
 
-
+// MARK: - Preview
 #Preview {
     UserStatView(value: 1, title: "Post")
 }
