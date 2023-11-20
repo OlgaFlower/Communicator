@@ -12,6 +12,7 @@ struct UploadPostView: View {
     @State private var selectedImage: UIImage?
     @State var postImage: Image?
     @State var captionText = ""
+    @State var imagePickerPresented = false
     
     private let addButtonWidth = 112.0
     private var shareButtonWidth = UIScreen.main.bounds.width * 0.8
@@ -21,7 +22,7 @@ struct UploadPostView: View {
         VStack {
             if self.postImage == nil {
                 Button(action: {
-                    
+                    self.imagePickerPresented.toggle()
                 }, label: {
                     Image("add")
                         .resizable()
@@ -29,11 +30,16 @@ struct UploadPostView: View {
                         .frame(width: self.addButtonWidth, height: self.addButtonWidth)
                         .clipped()
                         .padding(.top, 62)
+                }).sheet(
+                    isPresented: $imagePickerPresented,
+                    onDismiss: self.loadImage,
+                    content: {
+                    ImagePicker(image: $selectedImage)
                 })
-            } else {
+            } else if let image = self.postImage {
                 
                 HStack(alignment: .top) {
-                    Image("picture4")
+                    image
                         .resizable()
                         .scaledToFill()
                         .frame(width: 96, height: 96)
@@ -59,6 +65,15 @@ struct UploadPostView: View {
             Spacer()
         }
     }
+}
+
+extension UploadPostView {
+    
+    func loadImage() {
+        guard let selectedImage = self.selectedImage else { return }
+        self.postImage = Image(uiImage: selectedImage)
+    }
+    
 }
 
 #Preview {
