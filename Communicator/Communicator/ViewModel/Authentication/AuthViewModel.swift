@@ -11,10 +11,11 @@ import Firebase
 class AuthViewModel: ObservableObject {
     
     // MARK: - Properties
+    static let shared = AuthViewModel()
     @Published var userSession: FirebaseAuth.User?
     
     // MARK: - Initializator
-    init() {
+    private init() {
         self.userSession = Auth.auth().currentUser
     }
     
@@ -35,7 +36,8 @@ class AuthViewModel: ObservableObject {
     }
     
     func signOut() {
-        
+        self.userSession = nil
+        try? Auth.auth().signOut()
     }
     
     func resetPassword() {
