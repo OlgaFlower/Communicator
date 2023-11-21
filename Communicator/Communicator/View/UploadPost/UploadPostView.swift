@@ -48,7 +48,7 @@ struct UploadPostView: View {
         Button(action: {
             self.imagePickerPresented.toggle()
         }, label: {
-            Image("add")
+            Image("addPicture")
                 .resizable()
                 .scaledToFill()
                 .frame(width: self.addButtonWidth, height: self.addButtonWidth)

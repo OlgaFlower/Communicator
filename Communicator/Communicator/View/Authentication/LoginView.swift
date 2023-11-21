@@ -12,6 +12,7 @@ struct LoginView: View {
     // MARK: - Properties
     @State private var email = ""
     @State private var password = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     
     private let buttonWidth = UIScreen.main.bounds.width * 0.8
     
@@ -108,7 +109,9 @@ struct LoginView: View {
     }
     
     private var signInButtonView: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            self.viewModel.login()
+        }, label: {
             Text("Sign In")
                 .font(.headline)
                 .foregroundColor(.white)

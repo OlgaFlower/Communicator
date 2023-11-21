@@ -11,14 +11,15 @@ import Firebase
 @main
 struct CommunicatorApp: App {
     
+    // MARK: - Initializer
     init() {
         FirebaseApp.configure()
     }
     
+    // MARK: - Body
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            LoginView()
+            ContentView().environmentObject(AuthViewModel())
         }
     }
 }

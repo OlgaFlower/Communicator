@@ -18,6 +18,7 @@ struct RegistrationView: View {
     @State private var image: Image?
     @State var imagePickerPresented = false
     @Environment(\.presentationMode) var mode
+    @EnvironmentObject var viewModel: AuthViewModel
     
     private let buttonWidth = UIScreen.main.bounds.width * 0.8
     
@@ -68,7 +69,7 @@ struct RegistrationView: View {
                 Button(action: {
                     self.imagePickerPresented.toggle()
                 }, label: {
-                    Image("add")
+                    Image("addPicture")
                         .renderingMode(.template)
                         .resizable()
                         .scaledToFill()
@@ -101,7 +102,7 @@ struct RegistrationView: View {
     
     private var usernameField: some View {
         CustomTextField(
-            text: $email,
+            text: $userName,
             placeholder: Text("Username"),
             iconName: "person"
         )
@@ -114,7 +115,7 @@ struct RegistrationView: View {
     
     private var fullNameField: some View {
         CustomTextField(
-            text: $email,
+            text: $fullName,
             placeholder: Text("Full Name"),
             iconName: "person"
         )
@@ -139,7 +140,12 @@ struct RegistrationView: View {
     }
     
     private var signUpButtonView: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            self.viewModel.register(
+                withEmail: self.email,
+                password: self.password
+            )
+        }, label: {
             Text("Sign Up")
                 .font(.headline)
                 .foregroundColor(.white)
@@ -152,7 +158,7 @@ struct RegistrationView: View {
     
     private var signInField: some View {
         Button(action: {
-            mode.wrappedValue.dismiss()
+            self.mode.wrappedValue.dismiss()
         }, label: {
             HStack {
                 Text("Already have an account?")

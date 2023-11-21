@@ -44,6 +44,7 @@
 		42BAAF052B0D0F66005680FD /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 42BAAF042B0D0F66005680FD /* FirebaseStorage */; };
 		42BAAF082B0D111E005680FD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 42BAAF072B0D111E005680FD /* Kingfisher */; };
 		42BAAF0A2B0D13AA005680FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAF092B0D13AA005680FD /* GoogleService-Info.plist */; };
+		42BAAF0C2B0D1CEF005680FD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		42BAAEE12B0ADB50005680FD /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		42BAAEE32B0ADB6A005680FD /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		42BAAF092B0D13AA005680FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */,
+				42BAAE9B2B05F6FB005680FD /* Assets.xcassets */,
 				42BAAF092B0D13AA005680FD /* GoogleService-Info.plist */,
 				42BAAEAA2B05F81D005680FD /* Main */,
 				42BAAEA52B05F777005680FD /* Model */,
@@ -125,7 +128,6 @@
 				42BAAEA72B05F78A005680FD /* ViewModel */,
 				42BAAEA82B05F7B4005680FD /* API */,
 				42BAAEA92B05F7BF005680FD /* Utils */,
-				42BAAE9B2B05F6FB005680FD /* Assets.xcassets */,
 				42BAAE9D2B05F6FB005680FD /* Preview Content */,
 			);
 			path = Communicator;
@@ -289,6 +291,7 @@
 		42BAAEB72B05F9A1005680FD /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				42BAAEC02B064A65005680FD /* NotificationsView.swift in Sources */,
 				42BAAEC62B0666C9005680FD /* HomeCell.swift in Sources */,
 				42BAAED82B0A2C08005680FD /* ProfileActionButtonView.swift in Sources */,
+				42BAAF0C2B0D1CEF005680FD /* AuthViewModel.swift in Sources */,
 				42BAAECE2B07EB45005680FD /* UserListView.swift in Sources */,
 				42BAAED22B080BF4005680FD /* NotificationCell.swift in Sources */,
 				42BAAEDC2B0AD747005680FD /* LoginView.swift in Sources */,
