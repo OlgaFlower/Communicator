@@ -12,22 +12,36 @@ class AuthViewModel: ObservableObject {
     
     // MARK: - Properties
     static let shared = AuthViewModel()
-    @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: FirebaseAuth.User?
     
     // MARK: - Initializator
     private init() {
-        self.userSession = Auth.auth().currentUser
+        self.currentUser = Auth.auth().currentUser
+        self.fetchUser()
     }
     
     // MARK: - Functions
-    func login() {
+    func login(withEmail email: String, password: String) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                // TODO: - Handle error
+                print("DEBUG: Login failed \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.currentUser = user
+        }
     }
     
     func register(newUser: NewUserModel) {
+        
         ImageUploader.uploadImage(image: newUser.image) { imageUrl in
             Auth.auth().createUser(withEmail: newUser.email, password: newUser.password) { result, error in
                 if let error = error {
-                    print(error.localizedDescription)
+                    // TODO: - Handle error
+                    print("DEBUG: User registering failed \(error.localizedDescription)")
                     return
                 }
                 guard let user = result?.user else { return }
@@ -40,18 +54,18 @@ class AuthViewModel: ObservableObject {
                             "prfileImageUrl" : imageUrl,
                             "uid" : user.uid]
                 
-                Firestore.firestore().collection("users").document(user.uid).setData(data as [String : Any]) { error in
+                COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { error in
                     // TODO: - Handle error
                     
                     print("Successfully uploaded user data...")
-                    self.userSession = user
+                    self.currentUser = user
                 }
             }
         }
     }
     
     func signOut() {
-        self.userSession = nil
+        self.currentUser = nil
         try? Auth.auth().signOut()
     }
     
@@ -61,5 +75,15 @@ class AuthViewModel: ObservableObject {
     
     func fetchUser() {
         
+        guard let uid = currentUser?.uid else { return }
+        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+            
+            if let error = error {
+                // TODO: - Handle error
+                print("DEBUG: User fetching failed \(error.localizedDescription)")
+                return
+            }
+            
+        }
     }
 }

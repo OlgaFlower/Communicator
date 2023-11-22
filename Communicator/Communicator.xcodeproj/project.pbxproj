@@ -47,6 +47,7 @@
 		42BAAF0C2B0D1CEF005680FD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */; };
 		42BAAF0E2B0E0860005680FD /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0D2B0E0860005680FD /* ImageUploader.swift */; };
 		42BAAF102B0E0E3C005680FD /* NewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0F2B0E0E3C005680FD /* NewUserModel.swift */; };
+		42BAAF122B0E99EA005680FD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF112B0E99EA005680FD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		42BAAF0D2B0E0860005680FD /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		42BAAF0F2B0E0E3C005680FD /* NewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserModel.swift; sourceTree = "<group>"; };
+		42BAAF112B0E99EA005680FD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				42BAAED92B0A3FD5005680FD /* ImagePicker.swift */,
 				42BAAEE12B0ADB50005680FD /* CustomTextField.swift */,
 				42BAAEE32B0ADB6A005680FD /* CustomSecureField.swift */,
+				42BAAF112B0E99EA005680FD /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				42BAAEC42B064AB8005680FD /* UploadPostView.swift in Sources */,
 				42BAAF102B0E0E3C005680FD /* NewUserModel.swift in Sources */,
 				42BAAEE02B0AD774005680FD /* ResetPasswordView.swift in Sources */,
+				42BAAF122B0E99EA005680FD /* Constants.swift in Sources */,
 				42BAAEC22B064A80005680FD /* ProfileView.swift in Sources */,
 				42BAAEDA2B0A3FD5005680FD /* ImagePicker.swift in Sources */,
 				42BAAED42B09E477005680FD /* ProfileHeaderView.swift in Sources */,
