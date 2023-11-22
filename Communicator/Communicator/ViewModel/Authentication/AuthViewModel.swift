@@ -51,7 +51,7 @@ class AuthViewModel: ObservableObject {
                 let data = ["email" : newUser.email,
                             "userName" : newUser.userName,
                             "fullName" : newUser.fullName,
-                            "prfileImageUrl" : imageUrl,
+                            "profileImageUrl" : imageUrl,
                             "uid" : user.uid]
                 
                 COLLECTION_USERS.document(user.uid).setData(data as [String : Any]) { error in
@@ -74,7 +74,6 @@ class AuthViewModel: ObservableObject {
     }
     
     func fetchUser() {
-        
         guard let uid = currentUser?.uid else { return }
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             
@@ -84,6 +83,8 @@ class AuthViewModel: ObservableObject {
                 return
             }
             
+            guard let user = try? snapshot?.data(as: UserModel.self) else { return }
+            print("\(user)")
         }
     }
 }
