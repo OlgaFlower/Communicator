@@ -45,6 +45,8 @@
 		42BAAF082B0D111E005680FD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 42BAAF072B0D111E005680FD /* Kingfisher */; };
 		42BAAF0A2B0D13AA005680FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAF092B0D13AA005680FD /* GoogleService-Info.plist */; };
 		42BAAF0C2B0D1CEF005680FD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */; };
+		42BAAF0E2B0E0860005680FD /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0D2B0E0860005680FD /* ImageUploader.swift */; };
+		42BAAF102B0E0E3C005680FD /* NewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0F2B0E0E3C005680FD /* NewUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		42BAAEE32B0ADB6A005680FD /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		42BAAF092B0D13AA005680FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		42BAAF0D2B0E0860005680FD /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		42BAAF0F2B0E0E3C005680FD /* NewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 		42BAAEA52B05F777005680FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42BAAF0F2B0E0E3C005680FD /* NewUserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 		42BAAEA82B05F7B4005680FD /* API */ = {
 			isa = PBXGroup;
 			children = (
+				42BAAF0D2B0E0860005680FD /* ImageUploader.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -395,9 +401,11 @@
 				42BAAE982B05F6F9005680FD /* CommunicatorApp.swift in Sources */,
 				42BAAEDE2B0AD764005680FD /* RegistrationView.swift in Sources */,
 				42BAAEE22B0ADB50005680FD /* CustomTextField.swift in Sources */,
+				42BAAF0E2B0E0860005680FD /* ImageUploader.swift in Sources */,
 				42BAAEAC2B05F840005680FD /* ContentView.swift in Sources */,
 				42BAAEBA2B06499D005680FD /* MainTabView.swift in Sources */,
 				42BAAEC42B064AB8005680FD /* UploadPostView.swift in Sources */,
+				42BAAF102B0E0E3C005680FD /* NewUserModel.swift in Sources */,
 				42BAAEE02B0AD774005680FD /* ResetPasswordView.swift in Sources */,
 				42BAAEC22B064A80005680FD /* ProfileView.swift in Sources */,
 				42BAAEDA2B0A3FD5005680FD /* ImagePicker.swift in Sources */,
@@ -478,6 +486,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-no_warn_duplicate_libraries",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

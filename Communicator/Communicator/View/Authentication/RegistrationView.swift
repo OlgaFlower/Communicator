@@ -69,7 +69,7 @@ struct RegistrationView: View {
                 Button(action: {
                     self.imagePickerPresented.toggle()
                 }, label: {
-                    Image("addPicture")
+                    Image("uploadImageIcon")
                         .renderingMode(.template)
                         .resizable()
                         .scaledToFill()
@@ -141,9 +141,14 @@ struct RegistrationView: View {
     
     private var signUpButtonView: some View {
         Button(action: {
-            self.viewModel.register(
-                withEmail: self.email,
-                password: self.password
+            self.viewModel.register(newUser:
+                                        NewUserModel(
+                                            email: self.email,
+                                            password: self.password,
+                                            image: self.selectedImage,
+                                            fullName: self.fullName,
+                                            userName: self.userName
+                                        )
             )
         }, label: {
             Text("Sign Up")
