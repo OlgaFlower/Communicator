@@ -83,7 +83,7 @@ class AuthViewModel: ObservableObject {
                 return
             }
             
-            guard let user = try? snapshot?.data(as: UserModel.self) else { return }
+            guard let user = try? snapshot?.data(as: User.self) else { return }
             print("\(user)")
         }
     }

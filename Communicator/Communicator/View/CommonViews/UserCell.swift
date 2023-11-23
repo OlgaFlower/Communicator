@@ -11,7 +11,7 @@ import Kingfisher
 struct UserCell: View {
     
     // MARK: - Properties
-    let user: UserModel
+    let user: User
     
     // MARK: - Body
     var body: some View {
@@ -33,7 +33,7 @@ struct UserCell: View {
 // MARK: - Preview
 #Preview {
     UserCell(user:
-                UserModel(
+                User(
                     userName: "yeva_2000",
                     email: "yeva2000@gmail.com",
                     profileImageUrl: "",

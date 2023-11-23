@@ -18,11 +18,11 @@ struct SearchView: View {
     var body: some View {
         
         ScrollView {
-            SearchBar(text: $searchText, isEditing: $inSearchMode)
+            SearchBar(text: self.$searchText, isEditing: self.$inSearchMode)
                 .padding()
             ZStack {
-                if inSearchMode {
-                    UserListView(viewModel: self.viewModel)
+                if self.inSearchMode {
+                    UserListView(viewModel: self.viewModel, searchText: self.$searchText)
                 } else {
                     PostGridView()
                 }

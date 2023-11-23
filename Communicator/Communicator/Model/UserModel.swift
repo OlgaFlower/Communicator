@@ -7,7 +7,7 @@
 
 import FirebaseFirestore
 
-struct UserModel: Identifiable, Codable {
+struct User: Identifiable, Codable {
     let userName: String
     let email: String
     let profileImageUrl: String?
