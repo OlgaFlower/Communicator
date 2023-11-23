@@ -6,32 +6,38 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UserCell: View {
     
-    private let imageWidth = 48.0
+    // MARK: - Properties
+    let user: UserModel
     
+    // MARK: - Body
     var body: some View {
         
         HStack {
-            Image("avatar2")
-                .resizable()
-                .scaledToFill()
-                .frame(width: self.imageWidth, height: self.imageWidth)
-                .clipShape(Circle())
+            UserImageView(userImgUrl: self.user.profileImageUrl ?? "")
             
             VStack(alignment: .leading) {
-                Text("yeva_2000")
+                Text(self.user.userName)
                     .font(.system(size: 14, weight: .semibold))
-                Text("Yeva Orlando")
+                Text(self.user.fullName)
                     .font(.system(size: 14))
             }
-            
             Spacer()
         }
     }
 }
 
+// MARK: - Preview
 #Preview {
-    UserCell()
+    UserCell(user:
+                UserModel(
+                    userName: "yeva_2000",
+                    email: "yeva2000@gmail.com",
+                    profileImageUrl: "",
+                    fullName: "Yeva Dow"
+                )
+    )
 }
