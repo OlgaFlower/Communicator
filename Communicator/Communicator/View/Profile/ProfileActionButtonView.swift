@@ -10,8 +10,8 @@ import SwiftUI
 struct ProfileActionButtonView: View {
     
     // MARK: - Properties
-    private var isCurrentUser = false
-    private var isFollowed = true
+    let isCurrentUser: Bool
+    var isFollowed = false
     private let buttonWidth = UIScreen.main.bounds.width * 0.8
     
     // MARK: - Body
@@ -78,5 +78,9 @@ struct ProfileActionButtonView: View {
 }
 
 #Preview {
-    ProfileActionButtonView()
+    Group {
+        ProfileActionButtonView(isCurrentUser: true)
+            .padding(.bottom, 100.0)
+        ProfileActionButtonView(isCurrentUser: false)
+    }
 }

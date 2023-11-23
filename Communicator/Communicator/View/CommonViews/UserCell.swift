@@ -12,12 +12,14 @@ struct UserCell: View {
     
     // MARK: - Properties
     let user: User
+    private let imageWidth = 48.0
     
     // MARK: - Body
     var body: some View {
         
         HStack {
             UserImageView(userImgUrl: self.user.profileImageUrl ?? "")
+                .frame(width: 48.0, height: 48.0)
             
             VStack(alignment: .leading) {
                 Text(self.user.userName)

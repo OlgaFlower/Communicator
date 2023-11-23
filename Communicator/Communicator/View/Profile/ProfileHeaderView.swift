@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     
+    // MARK: - Properties
+    let user: User
+    private let imageWidth = 72.0
+    
     // MARK: - Body
     var body: some View {
         
@@ -30,22 +34,19 @@ struct ProfileHeaderView: View {
         
         HStack {
             Spacer()
-            ProfileActionButtonView()
+            ProfileActionButtonView(isCurrentUser: self.user.isCurrentUser)
             Spacer()
         }
     }
     
     // MARK: - Views
     private var imageView: some View {
-        Image("avatar4")
-            .resizable()
-            .scaledToFill()
-            .frame(width: 72, height: 72)
-            .clipShape(Circle())
+        UserImageView(userImgUrl: self.user.profileImageUrl ?? "")
+            .frame(width: self.imageWidth, height: self.imageWidth)
     }
     
     private var usernameView: some View {
-        Text("Bahiti Abdelaal")
+        Text(self.user.fullName)
             .font(.system(size: 15.0, weight: .semibold))
             .padding(.top)
             .padding(.leading)
@@ -61,5 +62,5 @@ struct ProfileHeaderView: View {
 
 // MARK: - Preview
 #Preview {
-    ProfileHeaderView()
+    ProfileHeaderView(user: User(userName: "niko_20", email: "", profileImageUrl: "", fullName: "Alice Wiver"))
 }

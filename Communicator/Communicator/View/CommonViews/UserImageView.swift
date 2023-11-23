@@ -13,23 +13,20 @@ struct UserImageView: View {
     // MARK: - Properties
     let userImgUrl: String
     private let defaultImage = Image("defaultUserImage")
-    private let imageWidth = 48.0
     
     // MARK: - Body
     var body: some View {
         if userImgUrl.isEmpty {
-            defaultImage
+            self.defaultImage
                 .renderingMode(.template)
                 .resizable()
                 .scaledToFill()
                 .foregroundColor(.gray)
-                .frame(width: self.imageWidth, height: self.imageWidth)
                 .clipShape(Circle())
         } else {
             KFImage(URL(string: userImgUrl))
                 .resizable()
                 .scaledToFill()
-                .frame(width: self.imageWidth, height: self.imageWidth)
                 .clipShape(Circle())
         }
     }

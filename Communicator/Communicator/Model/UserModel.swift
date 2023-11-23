@@ -13,4 +13,6 @@ struct User: Identifiable, Codable {
     let profileImageUrl: String?
     let fullName: String
     @DocumentID var id: String?
+    
+    var isCurrentUser: Bool { return AuthViewModel.shared.userSession?.uid == id }
 }

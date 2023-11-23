@@ -11,12 +11,14 @@ import Firebase
 class AuthViewModel: ObservableObject {
     
     // MARK: - Properties
+    @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: User?
+    
     static let shared = AuthViewModel()
-    @Published var currentUser: FirebaseAuth.User?
     
     // MARK: - Initializator
     private init() {
-        self.currentUser = Auth.auth().currentUser
+        self.userSession = Auth.auth().currentUser
         self.fetchUser()
     }
     
@@ -31,7 +33,8 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = result?.user else { return }
-            self.currentUser = user
+            self.userSession = user
+            self.fetchUser()
         }
     }
     
@@ -58,14 +61,15 @@ class AuthViewModel: ObservableObject {
                     // TODO: - Handle error
                     
                     print("Successfully uploaded user data...")
-                    self.currentUser = user
+                    self.userSession = user
+                    self.fetchUser()
                 }
             }
         }
     }
     
     func signOut() {
-        self.currentUser = nil
+        self.userSession = nil
         try? Auth.auth().signOut()
     }
     
@@ -74,7 +78,7 @@ class AuthViewModel: ObservableObject {
     }
     
     func fetchUser() {
-        guard let uid = currentUser?.uid else { return }
+        guard let uid = userSession?.uid else { return }
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             
             if let error = error {
@@ -84,7 +88,8 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = try? snapshot?.data(as: User.self) else { return }
-            print("\(user)")
+            self.currentUser = user
+            print(user)
         }
     }
 }

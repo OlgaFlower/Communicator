@@ -16,10 +16,12 @@ struct ContentView: View {
     var body: some View {
         
         Group {
-            if viewModel.currentUser == nil {
+            if self.viewModel.userSession == nil {
                 LoginView()
             } else {
-                MainTabView()
+                if let user = self.viewModel.currentUser {
+                    MainTabView(user: user)
+                }
             }
         }
     }

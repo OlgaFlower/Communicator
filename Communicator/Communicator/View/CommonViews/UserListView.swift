@@ -24,7 +24,7 @@ struct UserListView: View {
             LazyVStack {
                 ForEach(self.users) { user in
                     NavigationLink(
-                        destination: ProfileView()) {
+                        destination: ProfileView(user: user)) {
                             UserCell(user: user)
                                 .padding(.leading)
                         }

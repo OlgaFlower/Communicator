@@ -9,6 +9,9 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    // MARK: - Properties
+    let user: User
+    
     // MARK: - Body
     var body: some View {
         NavigationView {
@@ -29,7 +32,7 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "heart")
                     }
-                ProfileView()
+                ProfileView(user: self.user)
                     .tabItem {
                         Image(systemName: "person")
                     }
@@ -55,7 +58,3 @@ struct MainTabView: View {
     }
 }
 
-// MARK: - Preview
-#Preview {
-    MainTabView()
-}

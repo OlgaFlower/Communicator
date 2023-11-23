@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    // MARK: - Properties
+    let user: User
+    
     // MARK: - Body
     var body: some View {
         
         ScrollView {
             VStack(spacing: 32) {
-                ProfileHeaderView()
+                ProfileHeaderView(user: self.user)
                 PostGridView()
             }
             .padding(.top)
@@ -21,7 +25,3 @@ struct ProfileView: View {
     }
 }
 
-// MARK: - Preview
-#Preview {
-    ProfileView()
-}
