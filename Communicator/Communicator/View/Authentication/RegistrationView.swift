@@ -40,6 +40,7 @@ struct RegistrationView: View {
                     Spacer()
                     self.signInField
                 }
+                .padding(.horizontal, 36)
             }
         }
     }
@@ -90,53 +91,33 @@ struct RegistrationView: View {
     private var emailField: some View {
         CustomTextField(
             text: $email,
-            placeholder: Text("Email"),
+            placeholder: "Email",
             iconName: "envelope"
         )
-        .padding()
-        .background(Color(.init(white: 1, alpha: 0.15)))
-        .cornerRadius(10.0)
-        .foregroundColor(.white)
-        .padding(.horizontal, 32)
     }
     
     private var usernameField: some View {
         CustomTextField(
             text: $userName,
-            placeholder: Text("Username"),
+            placeholder: "Username",
             iconName: "person"
         )
-        .padding()
-        .background(Color(.init(white: 1, alpha: 0.15)))
-        .cornerRadius(10.0)
-        .foregroundColor(.white)
-        .padding(.horizontal, 32)
     }
     
     private var fullNameField: some View {
         CustomTextField(
             text: $fullName,
-            placeholder: Text("Full Name"),
+            placeholder: "Full Name",
             iconName: "person"
         )
-        .padding()
-        .background(Color(.init(white: 1, alpha: 0.15)))
-        .cornerRadius(10.0)
-        .foregroundColor(.white)
-        .padding(.horizontal, 32)
     }
     
     private var passwordField: some View {
         CustomTextField(
             text: $password,
-            placeholder: Text("Password"),
+            placeholder: "Password",
             iconName: "lock"
         )
-        .padding()
-        .background(Color(.init(white: 1, alpha: 0.15)))
-        .cornerRadius(10.0)
-        .foregroundColor(.white)
-        .padding(.horizontal, 32)
     }
     
     private var signUpButtonView: some View {

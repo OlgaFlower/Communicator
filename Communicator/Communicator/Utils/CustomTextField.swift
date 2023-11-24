@@ -11,25 +11,24 @@ struct CustomTextField: View {
     
     // MARK: - Properties
     @Binding var text: String
-    let placeholder: Text
+    let placeholder: String
     let iconName: String
     private let iconWidth = 12.0
     
     // MARK: - Body
     var body: some View {
         
-        ZStack(alignment: .leading) {
-            if self.text.isEmpty {
-                self.placeholder
-                    .foregroundColor(Color(.init(white: 1, alpha: 0.8)))
-                    .padding(.leading, 40)
-            }
-            
-            HStack {
-                self.iconView
-                TextField("", text: $text)
-            }
-        }
+        RoundedRectangle(cornerRadius: 10.0)
+            .foregroundColor(Color(.init(white: 1, alpha: 0.2)))
+            .frame(height: 50)
+            .overlay(
+                HStack(spacing: 10.0) {
+                    self.iconView
+                    TextField(placeholder, text: $text)
+                        .foregroundColor(.white)
+                }
+                    .padding(.horizontal, 20.0)
+            )
     }
     
     // MARK: - Views

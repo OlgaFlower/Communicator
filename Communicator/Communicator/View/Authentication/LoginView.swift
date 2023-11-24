@@ -44,8 +44,10 @@ struct LoginView: View {
                         } label: {
                             self.signUpField
                         }
-                        .padding(.bottom, 16)
+                        .padding(.bottom, 36)
                     }
+                    .padding(.top, 28)
+                    .padding(.horizontal, 36)
                 }
             }
         }
@@ -73,27 +75,17 @@ struct LoginView: View {
     private var emailField: some View {
         CustomTextField(
             text: $email,
-            placeholder: Text("Email"),
+            placeholder: "Email",
             iconName: "envelope"
         )
-        .padding()
-        .background(Color(.init(white: 1, alpha: 0.15)))
-        .cornerRadius(10.0)
-        .foregroundColor(.white)
-        .padding(.horizontal, 32)
     }
     
     private var passwordField: some View {
         CustomTextField(
             text: $password,
-            placeholder: Text("Password"),
+            placeholder: "Password",
             iconName: "lock"
         )
-        .padding()
-        .background(Color(.init(white: 1, alpha: 0.15)))
-        .cornerRadius(10.0)
-        .foregroundColor(.white)
-        .padding(.horizontal, 32)
     }
     
     private var forgotPasswordButtonView: some View {
