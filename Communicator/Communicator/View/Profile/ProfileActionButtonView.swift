@@ -10,14 +10,14 @@ import SwiftUI
 struct ProfileActionButtonView: View {
     
     // MARK: - Properties
-    let isCurrentUser: Bool
+    @ObservedObject var viewModel: ProfileViewModel
     var isFollowed = false
     private let buttonWidth = UIScreen.main.bounds.width * 0.8
     
     // MARK: - Body
     var body: some View {
         
-        if self.isCurrentUser {
+        if self.viewModel.user.isCurrentUser {
             self.editProfileButtonView
         } else {
             HStack {
@@ -45,7 +45,7 @@ struct ProfileActionButtonView: View {
     
     private var followButtonView: some View {
         Button(action: {
-            
+            self.isFollowed ? self.viewModel.unfollow() : self.viewModel.follow()
         }, label: {
             Text(self.isFollowed ? "Following" : "Follow")
                 .font(.system(size: 14.0, weight: .semibold))
@@ -74,13 +74,5 @@ struct ProfileActionButtonView: View {
                 )
         })
         .cornerRadius(3.0)
-    }
-}
-
-#Preview {
-    Group {
-        ProfileActionButtonView(isCurrentUser: true)
-            .padding(.bottom, 100.0)
-        ProfileActionButtonView(isCurrentUser: false)
     }
 }

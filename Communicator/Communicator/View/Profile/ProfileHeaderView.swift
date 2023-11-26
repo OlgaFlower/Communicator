@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileHeaderView: View {
     
     // MARK: - Properties
-    let user: User
+    @ObservedObject var viewModel: ProfileViewModel
     private let imageWidth = 72.0
     
     // MARK: - Body
@@ -34,19 +34,19 @@ struct ProfileHeaderView: View {
         
         HStack {
             Spacer()
-            ProfileActionButtonView(isCurrentUser: self.user.isCurrentUser)
+            ProfileActionButtonView(viewModel: self.viewModel)
             Spacer()
         }
     }
     
     // MARK: - Views
     private var imageView: some View {
-        UserImageView(userImgUrl: self.user.profileImageUrl ?? "")
+        UserImageView(userImgUrl: self.viewModel.user.profileImageUrl ?? "")
             .frame(width: self.imageWidth, height: self.imageWidth)
     }
     
     private var usernameView: some View {
-        Text(self.user.fullName)
+        Text(self.viewModel.user.fullName)
             .font(.system(size: 15.0, weight: .semibold))
             .padding(.top)
             .padding(.leading)
@@ -62,5 +62,15 @@ struct ProfileHeaderView: View {
 
 // MARK: - Preview
 #Preview {
-    ProfileHeaderView(user: User(userName: "niko_20", email: "", profileImageUrl: "", fullName: "Alice Wiver"))
+    ProfileHeaderView(
+        viewModel: ProfileViewModel(
+            user: User(
+                userName: "Casto",
+                email: "",
+                profileImageUrl: "",
+                fullName: "Leipkas Jimfok",
+                id: ""
+            )
+        )
+    )
 }

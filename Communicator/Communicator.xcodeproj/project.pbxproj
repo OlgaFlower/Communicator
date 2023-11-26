@@ -51,6 +51,8 @@
 		42BAAF142B0EA558005680FD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF132B0EA558005680FD /* UserModel.swift */; };
 		42BAAF162B0EB026005680FD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF152B0EB026005680FD /* SearchViewModel.swift */; };
 		42BAAF182B0F478E005680FD /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF172B0F478E005680FD /* UserImageView.swift */; };
+		42BAAF1A2B10AEAC005680FD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF192B10AEAC005680FD /* ProfileViewModel.swift */; };
+		42BAAF1C2B10B5C0005680FD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF1B2B10B5C0005680FD /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		42BAAF132B0EA558005680FD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		42BAAF152B0EB026005680FD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		42BAAF172B0F478E005680FD /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
+		42BAAF192B10AEAC005680FD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		42BAAF1B2B10B5C0005680FD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				42BAAF0D2B0E0860005680FD /* ImageUploader.swift */,
+				42BAAF1B2B10B5C0005680FD /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 		42BAAEB82B05F9BF005680FD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				42BAAF192B10AEAC005680FD /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -422,8 +428,10 @@
 				42BAAF102B0E0E3C005680FD /* NewUserModel.swift in Sources */,
 				42BAAEE02B0AD774005680FD /* ResetPasswordView.swift in Sources */,
 				42BAAF122B0E99EA005680FD /* Constants.swift in Sources */,
+				42BAAF1A2B10AEAC005680FD /* ProfileViewModel.swift in Sources */,
 				42BAAEC22B064A80005680FD /* ProfileView.swift in Sources */,
 				42BAAEDA2B0A3FD5005680FD /* ImagePicker.swift in Sources */,
+				42BAAF1C2B10B5C0005680FD /* UserService.swift in Sources */,
 				42BAAED42B09E477005680FD /* ProfileHeaderView.swift in Sources */,
 				42BAAECA2B07E597005680FD /* PostGridView.swift in Sources */,
 				42BAAED62B09EC16005680FD /* UserStatView.swift in Sources */,
