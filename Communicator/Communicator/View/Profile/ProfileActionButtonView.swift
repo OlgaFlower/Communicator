@@ -11,7 +11,10 @@ struct ProfileActionButtonView: View {
     
     // MARK: - Properties
     @ObservedObject var viewModel: ProfileViewModel
-    var isFollowed = false
+    
+    var isFollowed: Bool {
+        return self.viewModel.user.isFollowed ?? false
+    }
     private let buttonWidth = UIScreen.main.bounds.width * 0.8
     
     // MARK: - Body
