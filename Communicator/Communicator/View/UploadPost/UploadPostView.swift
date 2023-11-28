@@ -10,14 +10,15 @@ import SwiftUI
 struct UploadPostView: View {
     
     // MARK: - Properties
-    @State private var selectedImage: UIImage?
+    @Binding var tabIndex: Int
+    @State var selectedImage: UIImage?
     @State var postImage: Image?
     @State var captionText = ""
     @State var imagePickerPresented = false
     @ObservedObject var viewModel = UploadPostViewModel()
     
     private let addButtonWidth = 112.0
-    private var shareButtonWidth = UIScreen.main.bounds.width * 0.8
+    var shareButtonWidth = UIScreen.main.bounds.width * 0.8
     
     // MARK: - Body
     var body: some View {
@@ -27,14 +28,19 @@ struct UploadPostView: View {
                 self.showAddButton()
             } else if let image = self.postImage {
                 
-                HStack(alignment: .top) {
+                HStack(alignment: .top, spacing: 8) {
                     image
                         .resizable()
                         .scaledToFill()
                         .frame(width: 96, height: 96)
                         .clipped()
+                        .padding(.top, 4)
                     
-                    self.captionTextfieldView
+                    TextArea(
+                        text: self.$captionText,
+                        placeholder: "Enter caption..."
+                    )
+                    .frame(height: 96)
                 }
                 .padding()
                 
@@ -42,6 +48,7 @@ struct UploadPostView: View {
             }
             Spacer()
         }
+        .font(.body)
     }
     
     // MARK: - Views
@@ -63,17 +70,14 @@ struct UploadPostView: View {
             })
     }
     
-    private var captionTextfieldView: some View {
-        TextField("Enter your caption..", text: $captionText)
-    }
-    
     private func showShareButtonView() -> some View {
         Button(action: {
             guard let image = self.selectedImage else { return }
-            self.viewModel.uploadPost(
-                caption: self.captionText,
-                image: image
-            )
+            self.viewModel.uploadPost(caption: captionText, image: image) { _ in
+                self.captionText = ""
+                self.postImage = nil
+                self.tabIndex = 0
+            }
         }, label: {
             Text("Share")
                 .font(.system(size: 16.0, weight: .semibold))
@@ -96,5 +100,5 @@ extension UploadPostView {
 
 // MARK: - Preview
 #Preview {
-    UploadPostView()
+    UploadPostView(tabIndex: .constant(0))
 }

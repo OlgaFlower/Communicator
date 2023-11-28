@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  UIApplication+Extension.swift
 //  Communicator
 //
 //  Created by Olha Bereziuk on 17.11.23.

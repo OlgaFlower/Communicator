@@ -1,5 +1,5 @@
 //
-//  Constants.swift
+//  FirestoreConstants.swift
 //  Communicator
 //
 //  Created by Olha Bereziuk on 22.11.23.

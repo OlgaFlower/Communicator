@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4265417F2B1611B1001B0DB0 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4265417E2B1611B1001B0DB0 /* TextArea.swift */; };
 		42BAAE982B05F6F9005680FD /* CommunicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */; };
 		42BAAE9C2B05F6FB005680FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAE9B2B05F6FB005680FD /* Assets.xcassets */; };
 		42BAAE9F2B05F6FB005680FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAE9E2B05F6FB005680FD /* Preview Assets.xcassets */; };
@@ -22,7 +23,7 @@
 		42BAAECA2B07E597005680FD /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAEC92B07E597005680FD /* PostGridView.swift */; };
 		42BAAECC2B07EB37005680FD /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAECB2B07EB37005680FD /* UserCell.swift */; };
 		42BAAECE2B07EB45005680FD /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAECD2B07EB45005680FD /* UserListView.swift */; };
-		42BAAED02B080020005680FD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAECF2B080020005680FD /* Extensions.swift */; };
+		42BAAED02B080020005680FD /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAECF2B080020005680FD /* UIApplication+Extension.swift */; };
 		42BAAED22B080BF4005680FD /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAED12B080BF4005680FD /* NotificationCell.swift */; };
 		42BAAED42B09E477005680FD /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAED32B09E477005680FD /* ProfileHeaderView.swift */; };
 		42BAAED62B09EC16005680FD /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAED52B09EC16005680FD /* UserStatView.swift */; };
@@ -47,7 +48,7 @@
 		42BAAF0C2B0D1CEF005680FD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */; };
 		42BAAF0E2B0E0860005680FD /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0D2B0E0860005680FD /* ImageUploader.swift */; };
 		42BAAF102B0E0E3C005680FD /* NewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF0F2B0E0E3C005680FD /* NewUserModel.swift */; };
-		42BAAF122B0E99EA005680FD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF112B0E99EA005680FD /* Constants.swift */; };
+		42BAAF122B0E99EA005680FD /* FirestoreConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF112B0E99EA005680FD /* FirestoreConstants.swift */; };
 		42BAAF142B0EA558005680FD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF132B0EA558005680FD /* UserModel.swift */; };
 		42BAAF162B0EB026005680FD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF152B0EB026005680FD /* SearchViewModel.swift */; };
 		42BAAF182B0F478E005680FD /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF172B0F478E005680FD /* UserImageView.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4265417E2B1611B1001B0DB0 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		42BAAE942B05F6F9005680FD /* Communicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Communicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorApp.swift; sourceTree = "<group>"; };
 		42BAAE9B2B05F6FB005680FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,7 +75,7 @@
 		42BAAEC92B07E597005680FD /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		42BAAECB2B07EB37005680FD /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		42BAAECD2B07EB45005680FD /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
-		42BAAECF2B080020005680FD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		42BAAECF2B080020005680FD /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		42BAAED12B080BF4005680FD /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		42BAAED32B09E477005680FD /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		42BAAED52B09EC16005680FD /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		42BAAF0B2B0D1CEF005680FD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		42BAAF0D2B0E0860005680FD /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		42BAAF0F2B0E0E3C005680FD /* NewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserModel.swift; sourceTree = "<group>"; };
-		42BAAF112B0E99EA005680FD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		42BAAF112B0E99EA005680FD /* FirestoreConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreConstants.swift; sourceTree = "<group>"; };
 		42BAAF132B0EA558005680FD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		42BAAF152B0EB026005680FD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		42BAAF172B0F478E005680FD /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		426541802B166B7E001B0DB0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				42BAAECF2B080020005680FD /* UIApplication+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		426541812B166BCF001B0DB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42BAAED92B0A3FD5005680FD /* ImagePicker.swift */,
+				42BAAEE12B0ADB50005680FD /* CustomTextField.swift */,
+				42BAAEE32B0ADB6A005680FD /* CustomSecureField.swift */,
+				4265417E2B1611B1001B0DB0 /* TextArea.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		426541822B166BF5001B0DB0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				42BAAF112B0E99EA005680FD /* FirestoreConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		42BAAE8B2B05F6F9005680FD = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +174,7 @@
 				42BAAEA62B05F783005680FD /* View */,
 				42BAAEA72B05F78A005680FD /* ViewModel */,
 				42BAAEA82B05F7B4005680FD /* API */,
-				42BAAEA92B05F7BF005680FD /* Utils */,
+				42BAAEA92B05F7BF005680FD /* Helpers */,
 				42BAAE9D2B05F6FB005680FD /* Preview Content */,
 			);
 			path = Communicator;
@@ -205,16 +234,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		42BAAEA92B05F7BF005680FD /* Utils */ = {
+		42BAAEA92B05F7BF005680FD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				42BAAECF2B080020005680FD /* Extensions.swift */,
-				42BAAED92B0A3FD5005680FD /* ImagePicker.swift */,
-				42BAAEE12B0ADB50005680FD /* CustomTextField.swift */,
-				42BAAEE32B0ADB6A005680FD /* CustomSecureField.swift */,
-				42BAAF112B0E99EA005680FD /* Constants.swift */,
+				426541802B166B7E001B0DB0 /* Extensions */,
+				426541812B166BCF001B0DB0 /* Views */,
+				426541822B166BF5001B0DB0 /* Constants */,
 			);
-			path = Utils;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		42BAAEAA2B05F81D005680FD /* Main */ = {
@@ -430,7 +457,7 @@
 				42BAAF142B0EA558005680FD /* UserModel.swift in Sources */,
 				42BAAF102B0E0E3C005680FD /* NewUserModel.swift in Sources */,
 				42BAAEE02B0AD774005680FD /* ResetPasswordView.swift in Sources */,
-				42BAAF122B0E99EA005680FD /* Constants.swift in Sources */,
+				42BAAF122B0E99EA005680FD /* FirestoreConstants.swift in Sources */,
 				42BAAF1A2B10AEAC005680FD /* ProfileViewModel.swift in Sources */,
 				42BAAEC22B064A80005680FD /* ProfileView.swift in Sources */,
 				42BAAEDA2B0A3FD5005680FD /* ImagePicker.swift in Sources */,
@@ -439,6 +466,7 @@
 				42BAAECA2B07E597005680FD /* PostGridView.swift in Sources */,
 				42BAAED62B09EC16005680FD /* UserStatView.swift in Sources */,
 				42BAAECC2B07EB37005680FD /* UserCell.swift in Sources */,
+				4265417F2B1611B1001B0DB0 /* TextArea.swift in Sources */,
 				42BAAEC82B07B7E2005680FD /* SearchBar.swift in Sources */,
 				42BAAEE42B0ADB6A005680FD /* CustomSecureField.swift in Sources */,
 				42BAAEC02B064A65005680FD /* NotificationsView.swift in Sources */,
@@ -449,7 +477,7 @@
 				42BAAECE2B07EB45005680FD /* UserListView.swift in Sources */,
 				42BAAED22B080BF4005680FD /* NotificationCell.swift in Sources */,
 				42BAAEDC2B0AD747005680FD /* LoginView.swift in Sources */,
-				42BAAED02B080020005680FD /* Extensions.swift in Sources */,
+				42BAAED02B080020005680FD /* UIApplication+Extension.swift in Sources */,
 				42BAAF182B0F478E005680FD /* UserImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,8 +622,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +630,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -623,8 +653,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -632,6 +661,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olhaBereziuk.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

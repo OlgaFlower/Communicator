@@ -10,7 +10,7 @@ import Firebase
 
 class UploadPostViewModel: ObservableObject {
     
-    func uploadPost(caption: String, image: UIImage) {
+    func uploadPost(caption: String, image: UIImage, completion: FirestoreCompletion) {
         
         guard let user = AuthViewModel.shared.currentUser else { return }
         
@@ -24,11 +24,7 @@ class UploadPostViewModel: ObservableObject {
                         "ownerImageUrl": user.profileImageUrl ?? "",
                         "ownerUserName": user.userName] as [String: Any]
             
-            COLLECTION_POSTS.addDocument(data: data) { error in
-                // TODO: Handle error
-                
-                print("DEBUG: Uploaded post")
-            }
+            COLLECTION_POSTS.addDocument(data: data, completion: completion)
         }
     }
 }
