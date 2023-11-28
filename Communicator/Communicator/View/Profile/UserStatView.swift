@@ -22,7 +22,7 @@ struct UserStatView: View {
             Text(title)
                 .font(.system(size: 15.0))
         }
-        .frame(width: 80, alignment: .center)
+        .frame(width: 80.0, alignment: .center)
     }
 }
 

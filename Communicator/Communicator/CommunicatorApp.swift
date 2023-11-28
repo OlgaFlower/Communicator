@@ -19,7 +19,8 @@ struct CommunicatorApp: App {
     // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(AuthViewModel.shared)
+            ContentView()
+                .environmentObject(AuthViewModel.shared)
         }
     }
 }

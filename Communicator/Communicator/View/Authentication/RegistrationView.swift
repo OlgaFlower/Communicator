@@ -31,7 +31,7 @@ struct RegistrationView: View {
             VStack {
                 self.imageView
                 
-                VStack(spacing: 20) {
+                VStack(spacing: 20.0) {
                     self.emailField
                     self.usernameField
                     self.fullNameField
@@ -40,7 +40,7 @@ struct RegistrationView: View {
                     Spacer()
                     self.signInField
                 }
-                .padding(.horizontal, 36)
+                .padding(.horizontal, 36.0)
             }
         }
     }
@@ -63,9 +63,9 @@ struct RegistrationView: View {
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 100.0, height: 100.0)
                     .clipShape(Circle())
-                    .padding(.vertical, 32)
+                    .padding(.vertical, 32.0)
             } else {
                 Button(action: {
                     self.imagePickerPresented.toggle()
@@ -74,9 +74,9 @@ struct RegistrationView: View {
                         .renderingMode(.template)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 100, height: 100)
+                        .frame(width: 100.0, height: 100.0)
                         .foregroundColor(.white)
-                        .padding(.vertical, 32)
+                        .padding(.vertical, 32.0)
                 })
                 .sheet(
                     isPresented: $imagePickerPresented,
@@ -135,7 +135,7 @@ struct RegistrationView: View {
             Text("Sign Up")
                 .font(.headline)
                 .foregroundColor(.white)
-                .frame(width: self.buttonWidth, height: 50)
+                .frame(width: self.buttonWidth, height: 50.0)
                 .background(Color(.accent))
                 .clipShape(Capsule())
                 .padding()
@@ -154,7 +154,7 @@ struct RegistrationView: View {
             }
             .foregroundColor(.white)
         })
-        .padding(.bottom, 16)
+        .padding(.bottom, 16.0)
     }
 }
 

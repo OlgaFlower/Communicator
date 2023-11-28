@@ -21,7 +21,7 @@ struct ProfileHeaderView: View {
                 self.imageView
                 Spacer()
                 
-                HStack(spacing: 12) {
+                HStack(spacing: 12.0) {
                     UserStatView(value: 1, title: "Post")
                     UserStatView(value: 2, title: "Followers")
                     UserStatView(value: 4, title: "Following")
@@ -56,7 +56,7 @@ struct ProfileHeaderView: View {
         Text("UI/UX Designer | Blogger")
             .font(.system(size: 15.0))
             .padding(.leading)
-            .padding(.top, 1)
+            .padding(.top, 1.0)
     }
 }
 

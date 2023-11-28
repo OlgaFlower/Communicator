@@ -128,7 +128,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		426541812B166BCF001B0DB0 /* Views */ = {
+		426541812B166BCF001B0DB0 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				42BAAED92B0A3FD5005680FD /* ImagePicker.swift */,
@@ -136,7 +136,7 @@
 				42BAAEE32B0ADB6A005680FD /* CustomSecureField.swift */,
 				4265417E2B1611B1001B0DB0 /* TextArea.swift */,
 			);
-			path = Views;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		426541822B166BF5001B0DB0 /* Constants */ = {
@@ -238,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				426541802B166B7E001B0DB0 /* Extensions */,
-				426541812B166BCF001B0DB0 /* Views */,
+				426541812B166BCF001B0DB0 /* CustomViews */,
 				426541822B166BF5001B0DB0 /* Constants */,
 			);
 			path = Helpers;

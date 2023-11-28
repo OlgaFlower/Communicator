@@ -26,7 +26,7 @@ struct LoginView: View {
                 VStack {
                     self.appLogoView
                     
-                    VStack(spacing: 20) {
+                    VStack(spacing: 20.0) {
                         self.emailField
                         self.passwordField
                         
@@ -44,10 +44,10 @@ struct LoginView: View {
                         } label: {
                             self.signUpField
                         }
-                        .padding(.bottom, 36)
+                        .padding(.bottom, 36.0)
                     }
-                    .padding(.top, 28)
-                    .padding(.horizontal, 36)
+                    .padding(.top, 28.0)
+                    .padding(.horizontal, 36.0)
                 }
             }
         }
@@ -69,7 +69,7 @@ struct LoginView: View {
         Text("Communicator")
             .font(.system(size: 36, weight: .bold, design: .rounded))
             .foregroundColor(.white)
-            .padding(.top, 80)
+            .padding(.top, 80.0)
     }
     
     private var emailField: some View {
@@ -96,7 +96,7 @@ struct LoginView: View {
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundColor(.white)
                 .padding(.top)
-                .padding(.trailing, 32)
+                .padding(.trailing, 32.0)
         })
     }
     
@@ -107,7 +107,7 @@ struct LoginView: View {
             Text("Sign In")
                 .font(.headline)
                 .foregroundColor(.white)
-                .frame(width: self.buttonWidth, height: 50)
+                .frame(width: self.buttonWidth, height: 50.0)
                 .background(Color(.accent))
                 .clipShape(Capsule())
                 .padding()

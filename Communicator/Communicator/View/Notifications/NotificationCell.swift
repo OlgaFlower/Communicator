@@ -58,8 +58,8 @@ struct NotificationCell: View {
             
         } label: {
             Text("Follow")
-                .padding(.horizontal, 20)
-                .padding(.vertical, 8)
+                .padding(.horizontal, 20.0)
+                .padding(.vertical, 8.0)
                 .background(Color(.systemBlue))
                 .foregroundColor(.white)
                 .clipShape(Capsule())

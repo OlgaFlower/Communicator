@@ -36,8 +36,8 @@ struct SearchBar: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.gray)
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 8)
+                        .frame(minWidth: 0.0, maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 8.0)
                 }
             )
             .onTapGesture {
@@ -54,7 +54,7 @@ struct SearchBar: View {
             Text("Cancel")
                 .foregroundStyle(.black)
         })
-        .padding(.trailing, 8)
+        .padding(.trailing, 8.0)
         .transition(.move(edge: .trailing))
     }
 }

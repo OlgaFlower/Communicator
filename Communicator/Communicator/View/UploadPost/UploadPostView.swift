@@ -28,19 +28,19 @@ struct UploadPostView: View {
                 self.showAddButton()
             } else if let image = self.postImage {
                 
-                HStack(alignment: .top, spacing: 8) {
+                HStack(alignment: .top, spacing: 8.0) {
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 96, height: 96)
+                        .frame(width: 96.0, height: 96.0)
                         .clipped()
-                        .padding(.top, 4)
+                        .padding(.top, 4.0)
                     
                     TextArea(
                         text: self.$captionText,
                         placeholder: "Enter caption..."
                     )
-                    .frame(height: 96)
+                    .frame(height: 96.0)
                 }
                 .padding()
                 
@@ -48,7 +48,9 @@ struct UploadPostView: View {
             }
             Spacer()
         }
+        
         .font(.body)
+        
     }
     
     // MARK: - Views
@@ -61,7 +63,7 @@ struct UploadPostView: View {
                 .scaledToFill()
                 .frame(width: self.addButtonWidth, height: self.addButtonWidth)
                 .clipped()
-                .padding(.top, 62)
+                .padding(.top, 62.0)
         }).sheet(
             isPresented: $imagePickerPresented,
             onDismiss: self.loadImage,
@@ -81,7 +83,7 @@ struct UploadPostView: View {
         }, label: {
             Text("Share")
                 .font(.system(size: 16.0, weight: .semibold))
-                .frame(width: self.shareButtonWidth, height: 50)
+                .frame(width: self.shareButtonWidth, height: 50.0)
                 .background(Color.blue)
                 .cornerRadius(5.0)
                 .foregroundColor(.white)

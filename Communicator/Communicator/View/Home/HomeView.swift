@@ -11,7 +11,7 @@ struct FeedView: View {
     // MARK: - Body
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 32) {
+            LazyVStack(spacing: 32.0) {
                 ForEach(0..<10) { _ in
                     FeedCell()
                 }
