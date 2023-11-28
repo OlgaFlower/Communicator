@@ -14,6 +14,7 @@ class ProfileViewModel: ObservableObject {
     // MARK: - Initializator
     init(user: User) {
         self.user = user
+        self.checkIfUserIsFollowed()
     }
     
     // MARK: - Functions
@@ -23,15 +24,23 @@ class ProfileViewModel: ObservableObject {
             // TODO: - Handle error
             
             self.user.isFollowed = true
-            print("Successfully followed \(self.user.userName)")
         }
     }
     
     func unfollow() {
-        print("DEBUG: Unfollow user...")
+        guard let uid = self.user.id else { return }
+        UserService.unfollow(uid: uid) { error in
+            // TODO: - Handle error
+            
+            self.user.isFollowed = false
+        }
     }
     
     func checkIfUserIsFollowed() {
-        
+        guard !user.isCurrentUser else { return }
+        guard let uid = self.user.id else { return }
+        UserService.checkIfUserIsFollowed(uid: uid) { isFollowed in
+            self.user.isFollowed = isFollowed
+        }
     }
 }

@@ -40,7 +40,7 @@ class AuthViewModel: ObservableObject {
     
     func register(newUser: NewUserModel) {
         
-        ImageUploader.uploadImage(image: newUser.image) { imageUrl in
+        ImageUploader.uploadImage(image: newUser.image, type: .profile) { imageUrl in
             Auth.auth().createUser(withEmail: newUser.email, password: newUser.password) { result, error in
                 if let error = error {
                     // TODO: - Handle error

@@ -14,6 +14,7 @@ struct UploadPostView: View {
     @State var postImage: Image?
     @State var captionText = ""
     @State var imagePickerPresented = false
+    @ObservedObject var viewModel = UploadPostViewModel()
     
     private let addButtonWidth = 112.0
     private var shareButtonWidth = UIScreen.main.bounds.width * 0.8
@@ -68,7 +69,11 @@ struct UploadPostView: View {
     
     private func showShareButtonView() -> some View {
         Button(action: {
-            
+            guard let image = self.selectedImage else { return }
+            self.viewModel.uploadPost(
+                caption: self.captionText,
+                image: image
+            )
         }, label: {
             Text("Share")
                 .font(.system(size: 16.0, weight: .semibold))

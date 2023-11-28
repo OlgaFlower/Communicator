@@ -53,6 +53,7 @@
 		42BAAF182B0F478E005680FD /* UserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF172B0F478E005680FD /* UserImageView.swift */; };
 		42BAAF1A2B10AEAC005680FD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF192B10AEAC005680FD /* ProfileViewModel.swift */; };
 		42BAAF1C2B10B5C0005680FD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF1B2B10B5C0005680FD /* UserService.swift */; };
+		42BAAF2B2B15C950005680FD /* UploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF2A2B15C950005680FD /* UploadPostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		42BAAF172B0F478E005680FD /* UserImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageView.swift; sourceTree = "<group>"; };
 		42BAAF192B10AEAC005680FD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		42BAAF1B2B10B5C0005680FD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		42BAAF2A2B15C950005680FD /* UploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				42BAAEB62B05F990005680FD /* Notifications */,
 				42BAAEB52B05F987005680FD /* Feed */,
 				42BAAF152B0EB026005680FD /* SearchViewModel.swift */,
+				42BAAF2A2B15C950005680FD /* UploadPostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				42BAAEC02B064A65005680FD /* NotificationsView.swift in Sources */,
 				42BAAEC62B0666C9005680FD /* HomeCell.swift in Sources */,
 				42BAAED82B0A2C08005680FD /* ProfileActionButtonView.swift in Sources */,
+				42BAAF2B2B15C950005680FD /* UploadPostViewModel.swift in Sources */,
 				42BAAF0C2B0D1CEF005680FD /* AuthViewModel.swift in Sources */,
 				42BAAECE2B07EB45005680FD /* UserListView.swift in Sources */,
 				42BAAED22B080BF4005680FD /* NotificationCell.swift in Sources */,
