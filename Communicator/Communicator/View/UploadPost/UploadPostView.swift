@@ -18,7 +18,8 @@ struct UploadPostView: View {
     @ObservedObject var viewModel = UploadPostViewModel()
     
     private let addButtonWidth = 112.0
-    var shareButtonWidth = UIScreen.main.bounds.width * 0.8
+    var buttonWidth = UIScreen.main.bounds.width * 0.4
+    var buttonHeight = 44.0
     
     // MARK: - Body
     var body: some View {
@@ -44,7 +45,10 @@ struct UploadPostView: View {
                 }
                 .padding()
                 
-                self.showShareButtonView()
+                HStack(spacing: 16.0) {
+                    self.makeCancelButton()
+                    self.makeShareButton()
+                }
             }
             Spacer()
         }
@@ -72,7 +76,7 @@ struct UploadPostView: View {
             })
     }
     
-    private func showShareButtonView() -> some View {
+    private func makeShareButton() -> some View {
         Button(action: {
             guard let image = self.selectedImage else { return }
             self.viewModel.uploadPost(caption: captionText, image: image) { _ in
@@ -83,12 +87,25 @@ struct UploadPostView: View {
         }, label: {
             Text("Share")
                 .font(.system(size: 16.0, weight: .semibold))
-                .frame(width: self.shareButtonWidth, height: 50.0)
-                .background(Color.blue)
-                .cornerRadius(5.0)
+                .frame(width: self.buttonWidth, height: self.buttonHeight)
+                .background(.accent)
                 .foregroundColor(.white)
+                .cornerRadius(5.0)
         })
-        .padding()
+    }
+    
+    private func makeCancelButton() -> some View {
+        Button(action: {
+                self.captionText = ""
+                self.postImage = nil
+        }, label: {
+            Text("Cancel")
+                .font(.system(size: 16.0, weight: .semibold))
+                .frame(width: self.buttonWidth, height: self.buttonHeight)
+                .border(.red, width: 1.0)
+                .cornerRadius(5.0)
+                .foregroundColor(.red)
+        })
     }
 }
 
