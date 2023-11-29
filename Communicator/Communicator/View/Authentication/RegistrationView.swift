@@ -26,7 +26,7 @@ struct RegistrationView: View {
     var body: some View {
         
         ZStack {
-            self.linearGradient
+            BackgroundGradientView()
             
             VStack {
                 self.imageView
@@ -40,23 +40,13 @@ struct RegistrationView: View {
                     Spacer()
                     self.signInField
                 }
-                .padding(.horizontal, 36.0)
+                .padding([.horizontal, .bottom], 36.0)
             }
+            .padding(.top, 50)
         }
     }
     
     // MARK: - Views
-    private var linearGradient: some View {
-        LinearGradient(
-            gradient: Gradient(
-                colors: [.cyan, .indigo, .indigo, .purple]
-            ),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .ignoresSafeArea()
-    }
-    
     private var imageView: some View {
         Group {
             if let image = self.image {

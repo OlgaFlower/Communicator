@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4265417F2B1611B1001B0DB0 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4265417E2B1611B1001B0DB0 /* TextArea.swift */; };
+		426541852B1729C6001B0DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426541842B1729C6001B0DB0 /* LaunchScreen.storyboard */; };
+		4265418A2B174CA9001B0DB0 /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426541892B174CA9001B0DB0 /* BackgroundGradientView.swift */; };
 		42BAAE982B05F6F9005680FD /* CommunicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */; };
 		42BAAE9C2B05F6FB005680FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAE9B2B05F6FB005680FD /* Assets.xcassets */; };
 		42BAAE9F2B05F6FB005680FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAE9E2B05F6FB005680FD /* Preview Assets.xcassets */; };
@@ -59,6 +61,9 @@
 
 /* Begin PBXFileReference section */
 		4265417E2B1611B1001B0DB0 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
+		426541832B172984001B0DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		426541842B1729C6001B0DB0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		426541892B174CA9001B0DB0 /* BackgroundGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientView.swift; sourceTree = "<group>"; };
 		42BAAE942B05F6F9005680FD /* Communicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Communicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorApp.swift; sourceTree = "<group>"; };
 		42BAAE9B2B05F6FB005680FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,9 +171,11 @@
 		42BAAE962B05F6F9005680FD /* Communicator */ = {
 			isa = PBXGroup;
 			children = (
+				426541842B1729C6001B0DB0 /* LaunchScreen.storyboard */,
+				426541832B172984001B0DB0 /* Info.plist */,
+				42BAAF092B0D13AA005680FD /* GoogleService-Info.plist */,
 				42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */,
 				42BAAE9B2B05F6FB005680FD /* Assets.xcassets */,
-				42BAAF092B0D13AA005680FD /* GoogleService-Info.plist */,
 				42BAAEAA2B05F81D005680FD /* Main */,
 				42BAAEA52B05F777005680FD /* Model */,
 				42BAAEA62B05F783005680FD /* View */,
@@ -323,6 +330,7 @@
 				42BAAF172B0F478E005680FD /* UserImageView.swift */,
 				42BAAECB2B07EB37005680FD /* UserCell.swift */,
 				42BAAECD2B07EB45005680FD /* UserListView.swift */,
+				426541892B174CA9001B0DB0 /* BackgroundGradientView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -432,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42BAAE9F2B05F6FB005680FD /* Preview Assets.xcassets in Resources */,
+				426541852B1729C6001B0DB0 /* LaunchScreen.storyboard in Resources */,
 				42BAAE9C2B05F6FB005680FD /* Assets.xcassets in Resources */,
 				42BAAF0A2B0D13AA005680FD /* GoogleService-Info.plist in Resources */,
 			);
@@ -468,6 +477,7 @@
 				42BAAECC2B07EB37005680FD /* UserCell.swift in Sources */,
 				4265417F2B1611B1001B0DB0 /* TextArea.swift in Sources */,
 				42BAAEC82B07B7E2005680FD /* SearchBar.swift in Sources */,
+				4265418A2B174CA9001B0DB0 /* BackgroundGradientView.swift in Sources */,
 				42BAAEE42B0ADB6A005680FD /* CustomSecureField.swift in Sources */,
 				42BAAEC02B064A65005680FD /* NotificationsView.swift in Sources */,
 				42BAAEC62B0666C9005680FD /* HomeCell.swift in Sources */,
@@ -613,15 +623,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Communicator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6YJ62Z4KFL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Communicator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -644,15 +656,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Communicator/Preview Content\"";
 				DEVELOPMENT_TEAM = 6YJ62Z4KFL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Communicator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

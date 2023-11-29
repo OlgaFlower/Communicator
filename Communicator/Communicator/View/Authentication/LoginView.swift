@@ -18,18 +18,20 @@ struct LoginView: View {
     
     // MARK: - Body
     var body: some View {
-        
         NavigationView {
             ZStack {
-                self.linearGradient
+                BackgroundGradientView()
+                    .frame(width: UIScreen.main.bounds.width,
+                           height: UIScreen.main.bounds.height)
                 
                 VStack {
                     self.appLogoView
                     
                     VStack(spacing: 20.0) {
                         self.emailField
+                            .padding(.horizontal)
                         self.passwordField
-                        
+                            .padding(.horizontal)
                         HStack {
                             Spacer()
                             self.forgotPasswordButtonView
@@ -43,28 +45,17 @@ struct LoginView: View {
                                 .navigationBarBackButtonHidden()
                         } label: {
                             self.signUpField
+                                .padding(.bottom, 36.0)
                         }
-                        .padding(.bottom, 36.0)
                     }
                     .padding(.top, 28.0)
-                    .padding(.horizontal, 36.0)
                 }
             }
+            
         }
     }
     
     // MARK: - Views
-    private var linearGradient: some View {
-        LinearGradient(
-            gradient: Gradient(
-                colors: [.cyan, .indigo, .indigo, .purple]
-            ),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .ignoresSafeArea()
-    }
-    
     private var appLogoView: some View {
         Text("Communicator")
             .font(.system(size: 36, weight: .bold, design: .rounded))
