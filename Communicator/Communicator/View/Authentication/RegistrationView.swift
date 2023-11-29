@@ -20,7 +20,11 @@ struct RegistrationView: View {
     @Environment(\.presentationMode) var mode
     @EnvironmentObject var viewModel: AuthViewModel
     
-    private let buttonWidth = UIScreen.main.bounds.width * 0.8
+    let padding = LayoutConstants.paddingHorizont
+    let imgWidth = LayoutConstants.onboardingRoundedImgWidth
+    let btnWidth = LayoutConstants.onboardingBtnWidth
+    let btnHeight = LayoutConstants.btnHeight
+    let radius = LayoutConstants.btnCornerRadius
     
     // MARK: - Body
     var body: some View {
@@ -28,54 +32,57 @@ struct RegistrationView: View {
         ZStack {
             BackgroundGradientView()
             
-            VStack {
-                self.imageView
+            VStack(spacing: 12.0) {
+                self.addImageView
+                self.emailField
+                    .padding(.horizontal, self.padding)
+                self.usernameField
+                    .padding(.horizontal, self.padding)
+                self.fullNameField
+                    .padding(.horizontal, self.padding)
+                self.passwordField
+                    .padding(.horizontal, self.padding)
+                self.signUpButtonView
                 
-                VStack(spacing: 20.0) {
-                    self.emailField
-                    self.usernameField
-                    self.fullNameField
-                    self.passwordField
-                    self.signUpButtonView
-                    Spacer()
-                    self.signInField
-                }
-                .padding([.horizontal, .bottom], 36.0)
+                Spacer()
+                self.signInField
             }
-            .padding(.top, 50)
+            .padding(.top, 56)
         }
     }
     
     // MARK: - Views
-    private var imageView: some View {
+    private var addImageView: some View {
         Group {
             if let image = self.image {
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 100.0, height: 100.0)
+                    .frame(
+                        width: self.imgWidth,
+                        height: self.imgWidth
+                    )
                     .clipShape(Circle())
-                    .padding(.vertical, 32.0)
-            } else {
-                Button(action: {
-                    self.imagePickerPresented.toggle()
-                }, label: {
-                    Image("uploadImageIcon")
-                        .renderingMode(.template)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 100.0, height: 100.0)
-                        .foregroundColor(.white)
-                        .padding(.vertical, 32.0)
-                })
+            }
+            else {
+                Button(
+                    action: {
+                        self.imagePickerPresented.toggle()
+                    },
+                    label: {
+                        AddImageView()
+                    }
+                )
                 .sheet(
                     isPresented: $imagePickerPresented,
                     onDismiss: self.loadImage,
                     content: {
                         ImagePicker(image: $selectedImage)
-                    })
+                    }
+                )
             }
         }
+        .padding(.bottom, 12)
     }
     
     private var emailField: some View {
@@ -111,45 +118,55 @@ struct RegistrationView: View {
     }
     
     private var signUpButtonView: some View {
-        Button(action: {
-            self.viewModel.register(newUser:
-                                        NewUserModel(
-                                            email: self.email,
-                                            password: self.password,
-                                            image: self.selectedImage,
-                                            fullName: self.fullName,
-                                            userName: self.userName
-                                        )
-            )
-        }, label: {
-            Text("Sign Up")
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(width: self.buttonWidth, height: 50.0)
-                .background(Color(.accent))
-                .clipShape(Capsule())
-                .padding()
-        })
+        Button(
+            action: {
+                self.viewModel.register(
+                    newUser:
+                        NewUserModel(
+                            email: self.email,
+                            password: self.password,
+                            image: self.selectedImage,
+                            fullName: self.fullName,
+                            userName: self.userName
+                        )
+                )
+            },
+            label: {
+                Text("Sign Up")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: self.btnWidth, height: self.btnHeight)
+                    .overlay (
+                        RoundedRectangle(cornerRadius: self.radius)
+                            .stroke(CustomColor.blueWithOpacity, lineWidth: 1.0)
+                    )
+                    .padding(.top, 12)
+            }
+        )
     }
     
     private var signInField: some View {
-        Button(action: {
-            self.mode.wrappedValue.dismiss()
-        }, label: {
-            HStack {
-                Text("Already have an account?")
-                    .font(.system(size: 14))
-                Text("Sign In")
-                    .font(.system(size: 14, weight: .semibold))
+        Button(
+            action: {
+                self.mode.wrappedValue.dismiss()
+            },
+            label: {
+                HStack {
+                    Text("Already have an account?")
+                        .font(.system(size: 14))
+                    Text("Sign In")
+                        .font(.system(size: 14, weight: .semibold))
+                }
+                .foregroundColor(.white)
             }
-            .foregroundColor(.white)
-        })
-        .padding(.bottom, 16.0)
+        )
+        .padding(.bottom, 22.0)
     }
 }
 
 // MARK: - Extension
 extension RegistrationView {
+    
     func loadImage() {
         guard let selectedImage = self.selectedImage else { return }
         self.image = Image(uiImage: selectedImage)

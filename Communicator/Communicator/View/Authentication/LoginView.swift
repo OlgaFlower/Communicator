@@ -14,53 +14,58 @@ struct LoginView: View {
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
     
-    private let buttonWidth = UIScreen.main.bounds.width * 0.8
+    let padding = LayoutConstants.paddingHorizont
+    let btnWidth = LayoutConstants.onboardingBtnWidth
+    let btnHeight = LayoutConstants.btnHeight
+    let radius = LayoutConstants.btnCornerRadius
     
     // MARK: - Body
     var body: some View {
+        
         NavigationView {
             ZStack {
                 BackgroundGradientView()
-                    .frame(width: UIScreen.main.bounds.width,
-                           height: UIScreen.main.bounds.height)
-                
                 VStack {
                     self.appLogoView
                     
-                    VStack(spacing: 20.0) {
+                    VStack(spacing: 12.0) {
                         self.emailField
-                            .padding(.horizontal)
+                            .padding(.horizontal, self.padding)
                         self.passwordField
-                            .padding(.horizontal)
-                        HStack {
-                            Spacer()
-                            self.forgotPasswordButtonView
-                        }
-                        
-                        self.signInButtonView
-                        Spacer()
-                        
-                        NavigationLink {
-                            RegistrationView()
-                                .navigationBarBackButtonHidden()
-                        } label: {
-                            self.signUpField
-                                .padding(.bottom, 36.0)
-                        }
+                            .padding(.horizontal, self.padding)
                     }
-                    .padding(.top, 28.0)
+                    
+                    VStack(spacing: 4.0) {
+                        self.signInButtonView
+                        self.forgotPasswordButtonView
+                    }
+                    Spacer()
+                    
+                    NavigationLink {
+                        RegistrationView()
+                            .navigationBarBackButtonHidden()
+                    } label: {
+                        self.signUpField
+                    }
+                    .padding(.top, 44.0)
                 }
             }
-            
         }
     }
     
     // MARK: - Views
     private var appLogoView: some View {
         Text("Communicator")
-            .font(.system(size: 36, weight: .bold, design: .rounded))
+            .font(
+                .system(
+                    size: 36,
+                    weight: .bold,
+                    design: .rounded
+                )
+            )
             .foregroundColor(.white)
             .padding(.top, 80.0)
+            .padding(.bottom, 50)
     }
     
     private var emailField: some View {
@@ -80,29 +85,41 @@ struct LoginView: View {
     }
     
     private var forgotPasswordButtonView: some View {
-        Button(action: {
-            
-        }, label: {
-            Text("Forgot password?")
-                .font(.system(size: 13, weight: .semibold))
-                .foregroundColor(.white)
-                .padding(.top)
-                .padding(.trailing, 32.0)
-        })
+        Button(
+            action: {
+                
+            },
+            label: {
+                Text("Forgot password?")
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+        )
     }
     
     private var signInButtonView: some View {
-        Button(action: {
-            self.viewModel.login(withEmail: self.email, password: self.password)
-        }, label: {
-            Text("Sign In")
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(width: self.buttonWidth, height: 50.0)
-                .background(Color(.accent))
-                .clipShape(Capsule())
-                .padding()
-        })
+        Button(
+            action: {
+                self.viewModel.login(
+                    withEmail: self.email,
+                    password: self.password
+                )
+            },
+            label: {
+                Text("Sign In")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(
+                        width: self.btnWidth,
+                        height: self.btnHeight
+                    )
+                    .overlay (
+                        RoundedRectangle(cornerRadius: self.radius)
+                            .stroke(CustomColor.blueWithOpacity, lineWidth: 1.0)
+                    )
+                    .padding()
+            }
+        )
     }
     
     private var signUpField: some View {
@@ -112,6 +129,7 @@ struct LoginView: View {
             Text("Sign Up")
                 .font(.system(size: 14, weight: .semibold))
         }
+        .padding(.bottom, 22.0)
         .foregroundColor(.white)
     }
 }
