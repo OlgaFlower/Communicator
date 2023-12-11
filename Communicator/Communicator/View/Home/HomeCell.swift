@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FeedCell: View {
     
     // MARK: - Properties
     private let userImgWidth = 36.0
+    let post: PostModel
     
     // MARK: - Body
     var body: some View {
@@ -37,20 +39,20 @@ struct FeedCell: View {
     // MARK: - Views
     private var userInfoView: some View {
         HStack {
-            Image("avatar1")
+            KFImage(URL(string: self.post.ownerImageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: self.userImgWidth, height: self.userImgWidth)
                 .clipped()
                 .clipShape(Circle())
             
-            Text("Maruna")
+            Text(self.post.ownerUserName)
                 .font(.system(size: 14, weight: .semibold))
         }
     }
     
     private var postImageView: some View {
-        Image("picture1")
+        KFImage(URL(string: self.post.imageUrl))
             .resizable()
             .scaledToFill()
             .frame(maxHeight: 400.0)
@@ -71,7 +73,7 @@ struct FeedCell: View {
     }
     
     private var likesView: some View {
-        Text("3 likes")
+        Text("\(self.post.likes) likes")
             .font(.system(size: 14, weight: .semibold))
             .padding(.leading, 8.0)
             .padding(.bottom, 2.0)
@@ -79,10 +81,10 @@ struct FeedCell: View {
     
     private var postDescriptionView: some View {
         HStack {
-            Text("Maruna")
+            Text(self.post.ownerUserName)
                 .font(.system(size: 14, weight: .semibold))
             +
-            Text(" Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.")
+            Text(" \(self.post.caption)")
                 .font(.system(size: 15))
         }
         .padding(.horizontal, 8.0)
@@ -98,6 +100,6 @@ struct FeedCell: View {
 }
 
 // MARK: - Preview
-#Preview {
-    FeedCell()
-}
+//#Preview {
+//    FeedCell(post: PostModel(ownerUid: <#T##String#>, ownerUserName: <#T##String#>, caption: <#T##String#>, likes: <#T##Int#>, imageUrl: <#T##String#>, timeStamp: <#T##Timestamp#>, ownerImageUrl: <#T##String#>))
+//}

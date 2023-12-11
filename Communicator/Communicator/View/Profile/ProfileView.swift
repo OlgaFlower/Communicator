@@ -25,7 +25,7 @@ struct ProfileView: View {
         ScrollView {
             VStack(spacing: 32) {
                 ProfileHeaderView(viewModel: self.viewModel)
-                PostGridView()
+                PostGridView(type: .profile(self.user.id ?? ""))
             }
             .padding(.top)
         }
