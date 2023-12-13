@@ -16,6 +16,7 @@
 		42A8EB472B272F1D000198A0 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB462B272F1D000198A0 /* PostModel.swift */; };
 		42A8EB492B273400000198A0 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB482B273400000198A0 /* FeedViewModel.swift */; };
 		42A8EB4B2B275475000198A0 /* PostGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB4A2B275475000198A0 /* PostGridViewModel.swift */; };
+		42A8EB502B29C577000198A0 /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB4F2B29C577000198A0 /* FeedCellViewModel.swift */; };
 		42BAAE982B05F6F9005680FD /* CommunicatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */; };
 		42BAAE9C2B05F6FB005680FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAE9B2B05F6FB005680FD /* Assets.xcassets */; };
 		42BAAE9F2B05F6FB005680FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BAAE9E2B05F6FB005680FD /* Preview Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		42A8EB462B272F1D000198A0 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		42A8EB482B273400000198A0 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedViewModel.swift; path = Communicator/Model/FeedViewModel.swift; sourceTree = SOURCE_ROOT; };
 		42A8EB4A2B275475000198A0 /* PostGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridViewModel.swift; sourceTree = "<group>"; };
+		42A8EB4F2B29C577000198A0 /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedCellViewModel.swift; path = Communicator/ViewModel/FeedCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		42BAAE942B05F6F9005680FD /* Communicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Communicator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BAAE972B05F6F9005680FD /* CommunicatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorApp.swift; sourceTree = "<group>"; };
 		42BAAE9B2B05F6FB005680FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				42A8EB482B273400000198A0 /* FeedViewModel.swift */,
+				42A8EB4F2B29C577000198A0 /* FeedCellViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				42BAAED42B09E477005680FD /* ProfileHeaderView.swift in Sources */,
 				42BAAECA2B07E597005680FD /* PostGridView.swift in Sources */,
 				42BAAED62B09EC16005680FD /* UserStatView.swift in Sources */,
+				42A8EB502B29C577000198A0 /* FeedCellViewModel.swift in Sources */,
 				4265418D2B176825001B0DB0 /* CustomColor.swift in Sources */,
 				42BAAECC2B07EB37005680FD /* UserCell.swift in Sources */,
 				4265417F2B1611B1001B0DB0 /* TextArea.swift in Sources */,

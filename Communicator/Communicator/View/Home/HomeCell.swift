@@ -11,9 +11,17 @@ import Kingfisher
 struct FeedCell: View {
     
     // MARK: - Properties
-    private let userImgWidth = 36.0
-    let post: PostModel
+    @ObservedObject var viewModel: FeedCellViewModel
     
+    private var didLike: Bool {
+        return self.viewModel.post.didLike ?? false
+    }
+    private let userImgWidth = 36.0
+    
+    // MARK: - Init
+    init(viewModel: FeedCellViewModel) {
+        self.viewModel = viewModel
+    }
     // MARK: - Body
     var body: some View {
         
@@ -23,7 +31,7 @@ struct FeedCell: View {
             self.postImageView
             
             HStack(spacing: 16.0) {
-                self.makeButton(iconName: "heart")
+                self.makeLikeButton()
                 self.makeButton(iconName: "bubble.right")
                 self.makeButton(iconName: "paperplane")
             }
@@ -39,24 +47,38 @@ struct FeedCell: View {
     // MARK: - Views
     private var userInfoView: some View {
         HStack {
-            KFImage(URL(string: self.post.ownerImageUrl))
+            KFImage(URL(string: self.viewModel.post.ownerImageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: self.userImgWidth, height: self.userImgWidth)
                 .clipped()
                 .clipShape(Circle())
             
-            Text(self.post.ownerUserName)
+            Text(self.viewModel.post.ownerUserName)
                 .font(.system(size: 14, weight: .semibold))
         }
     }
     
     private var postImageView: some View {
-        KFImage(URL(string: self.post.imageUrl))
+        KFImage(URL(string: self.viewModel.post.imageUrl))
             .resizable()
             .scaledToFill()
             .frame(maxHeight: 400.0)
             .clipped()
+    }
+    
+    private func makeLikeButton() -> some View {
+        Button {
+            self.didLike ? self.viewModel.unlike() : self.viewModel.like()
+        } label: {
+            Image(systemName: self.didLike ? "heart.fill" : "heart")
+                .resizable()
+                .scaledToFill()
+                .foregroundColor(self.didLike ? .red : .black)
+                .frame(width: 20.0, height: 20.0)
+                .font(.system(size: 20))
+                .padding(4.0)
+        }
     }
     
     private func makeButton(iconName: String) -> some View {
@@ -73,7 +95,7 @@ struct FeedCell: View {
     }
     
     private var likesView: some View {
-        Text("\(self.post.likes) likes")
+        Text(self.viewModel.likeString)
             .font(.system(size: 14, weight: .semibold))
             .padding(.leading, 8.0)
             .padding(.bottom, 2.0)
@@ -81,10 +103,10 @@ struct FeedCell: View {
     
     private var postDescriptionView: some View {
         HStack {
-            Text(self.post.ownerUserName)
+            Text(self.viewModel.post.ownerUserName)
                 .font(.system(size: 14, weight: .semibold))
             +
-            Text(" \(self.post.caption)")
+            Text(" \(self.viewModel.post.caption)")
                 .font(.system(size: 15))
         }
         .padding(.horizontal, 8.0)
