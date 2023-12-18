@@ -27,6 +27,7 @@ class CommentViewModel: ObservableObject {
         
         guard let user = AuthViewModel.shared.currentUser else { return }
         guard let postId = post.id else { return }
+        guard !commentText.isEmpty else { return }
         
         let data: [String : Any] = ["userName" : user.userName,
                                     "profileImageUrl" : user.profileImageUrl ?? "",

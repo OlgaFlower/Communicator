@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4263CD6E2B30F88F00FC904B /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263CD6C2B30F88F00FC904B /* CommentCell.swift */; };
+		4263CD6F2B30F88F00FC904B /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263CD6D2B30F88F00FC904B /* CommentsView.swift */; };
 		4265417F2B1611B1001B0DB0 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4265417E2B1611B1001B0DB0 /* TextArea.swift */; };
 		426541852B1729C6001B0DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 426541842B1729C6001B0DB0 /* LaunchScreen.storyboard */; };
 		4265418A2B174CA9001B0DB0 /* BackgroundGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426541892B174CA9001B0DB0 /* BackgroundGradientView.swift */; };
@@ -18,8 +20,6 @@
 		42A8EB532B29DF53000198A0 /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB512B29DF53000198A0 /* FeedCellViewModel.swift */; };
 		42A8EB542B29DF53000198A0 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB522B29DF53000198A0 /* FeedViewModel.swift */; };
 		42A8EB5C2B2DF60A000198A0 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB5B2B2DF60A000198A0 /* CommentModel.swift */; };
-		42A8EB5E2B2DF64D000198A0 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB5D2B2DF64D000198A0 /* CommentsView.swift */; };
-		42A8EB602B2DF665000198A0 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB5F2B2DF665000198A0 /* CommentCell.swift */; };
 		42A8EB632B2DF6A1000198A0 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB622B2DF6A1000198A0 /* CommentViewModel.swift */; };
 		42A8EB652B3048DC000198A0 /* CustomTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB642B3048DC000198A0 /* CustomTextInputView.swift */; };
 		42A8EB672B3049CC000198A0 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8EB662B3049CC000198A0 /* SeparatorView.swift */; };
@@ -73,6 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4263CD6C2B30F88F00FC904B /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		4263CD6D2B30F88F00FC904B /* CommentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		4265417E2B1611B1001B0DB0 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		426541832B172984001B0DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		426541842B1729C6001B0DB0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,8 +87,6 @@
 		42A8EB512B29DF53000198A0 /* FeedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
 		42A8EB522B29DF53000198A0 /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		42A8EB5B2B2DF60A000198A0 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
-		42A8EB5D2B2DF64D000198A0 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentsView.swift; path = Communicator/Model/CommentsView.swift; sourceTree = SOURCE_ROOT; };
-		42A8EB5F2B2DF665000198A0 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentCell.swift; path = Communicator/Model/CommentCell.swift; sourceTree = SOURCE_ROOT; };
 		42A8EB622B2DF6A1000198A0 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		42A8EB642B3048DC000198A0 /* CustomTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextInputView.swift; sourceTree = "<group>"; };
 		42A8EB662B3049CC000198A0 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
@@ -363,8 +363,8 @@
 		42BAAEB02B05F89C005680FD /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				42A8EB5D2B2DF64D000198A0 /* CommentsView.swift */,
-				42A8EB5F2B2DF665000198A0 /* CommentCell.swift */,
+				4263CD6C2B30F88F00FC904B /* CommentCell.swift */,
+				4263CD6D2B30F88F00FC904B /* CommentsView.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -534,9 +534,10 @@
 			files = (
 				42BAAEBE2B064A40005680FD /* SearchView.swift in Sources */,
 				42A8EB472B272F1D000198A0 /* PostModel.swift in Sources */,
-				42A8EB5E2B2DF64D000198A0 /* CommentsView.swift in Sources */,
+				4263CD6F2B30F88F00FC904B /* CommentsView.swift in Sources */,
 				42A8EB532B29DF53000198A0 /* FeedCellViewModel.swift in Sources */,
 				42BAAEBC2B064A27005680FD /* FeedView.swift in Sources */,
+				4263CD6E2B30F88F00FC904B /* CommentCell.swift in Sources */,
 				42BAAE982B05F6F9005680FD /* CommunicatorApp.swift in Sources */,
 				42A8EB632B2DF6A1000198A0 /* CommentViewModel.swift in Sources */,
 				42BAAEDE2B0AD764005680FD /* RegistrationView.swift in Sources */,
@@ -544,7 +545,6 @@
 				42BAAF0E2B0E0860005680FD /* ImageUploader.swift in Sources */,
 				42BAAF162B0EB026005680FD /* SearchViewModel.swift in Sources */,
 				42BAAEAC2B05F840005680FD /* ContentView.swift in Sources */,
-				42A8EB602B2DF665000198A0 /* CommentCell.swift in Sources */,
 				42BAAEBA2B06499D005680FD /* MainTabView.swift in Sources */,
 				426541912B177DC3001B0DB0 /* AddImageView.swift in Sources */,
 				42A8EB652B3048DC000198A0 /* CustomTextInputView.swift in Sources */,
