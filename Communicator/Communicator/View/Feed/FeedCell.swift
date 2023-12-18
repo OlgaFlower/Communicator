@@ -32,7 +32,10 @@ struct FeedCell: View {
             
             HStack(spacing: 16.0) {
                 self.makeLikeButton()
-                self.makeButton(iconName: "bubble.right")
+                
+                NavigationLink(destination: CommentsView(post: self.viewModel.post)) {
+                    self.commentView
+                }
                 self.makeButton(iconName: "paperplane")
             }
             .padding(.leading, 4.0)
@@ -99,6 +102,15 @@ struct FeedCell: View {
             .font(.system(size: 14, weight: .semibold))
             .padding(.leading, 8.0)
             .padding(.bottom, 2.0)
+    }
+    
+    private var commentView: some View {
+        Image(systemName: "bubble.right")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 20.0, height: 20.0)
+            .font(.system(size: 20))
+            .padding(4.0)
     }
     
     private var postDescriptionView: some View {
