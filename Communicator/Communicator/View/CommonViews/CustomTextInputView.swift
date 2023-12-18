@@ -30,8 +30,8 @@ struct CustomTextInputView: View {
                         .foregroundColor(.blue)
                 }
             }
+            .padding(.bottom, 8)
+            .padding(.horizontal)
         }
-        .padding(.bottom, 8)
-        .padding(.horizontal)
     }
 }

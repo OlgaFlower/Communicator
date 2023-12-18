@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import Kingfisher
+import Firebase
 
 struct CommentCell: View {
     
-    private var imageWidth = 42.0
+    // MARK: - Properties
+    let comment: CommentModel
+    var imageWidth = 42.0
     
+    // MARK: - Body
     var body: some View {
         
         HStack {
-            Image("avatar2")
+            KFImage(URL(string: self.comment.profileImageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(
@@ -31,9 +36,9 @@ struct CommentCell: View {
         .padding(.horizontal)
     }
     
-    private var commentInfoView: some View {
+    var commentInfoView: some View {
         HStack {
-            Text("Moolliee")
+            Text(self.comment.userName)
                 .font(.system(size: 14.0, weight: .semibold))
             Text("2m")
                 .foregroundColor(.gray)
@@ -41,12 +46,8 @@ struct CommentCell: View {
         }
     }
     
-    private var commentView: some View {
-        Text("some test comment")
+    var commentView: some View {
+        Text(self.comment.commentText)
             .font(.system(size: 14))
     }
-}
-
-#Preview {
-    CommentCell()
 }

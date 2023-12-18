@@ -31,10 +31,10 @@ struct FeedCell: View {
             self.postImageView
             
             HStack(spacing: 16.0) {
-                self.makeLikeButton()
+                self.likeIcon
                 
                 NavigationLink(destination: CommentsView(post: self.viewModel.post)) {
-                    self.commentView
+                    self.commentsIcon
                 }
                 self.makeButton(iconName: "paperplane")
             }
@@ -70,7 +70,7 @@ struct FeedCell: View {
             .clipped()
     }
     
-    private func makeLikeButton() -> some View {
+    private var likeIcon: some View {
         Button {
             self.didLike ? self.viewModel.unlike() : self.viewModel.like()
         } label: {
@@ -104,7 +104,7 @@ struct FeedCell: View {
             .padding(.bottom, 2.0)
     }
     
-    private var commentView: some View {
+    private var commentsIcon: some View {
         Image(systemName: "bubble.right")
             .resizable()
             .scaledToFill()
@@ -132,8 +132,3 @@ struct FeedCell: View {
             .padding(.top, 4.0)
     }
 }
-
-// MARK: - Preview
-//#Preview {
-//    FeedCell(post: PostModel(ownerUid: <#T##String#>, ownerUserName: <#T##String#>, caption: <#T##String#>, likes: <#T##Int#>, imageUrl: <#T##String#>, timeStamp: <#T##Timestamp#>, ownerImageUrl: <#T##String#>))
-//}

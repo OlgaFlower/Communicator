@@ -3,4 +3,54 @@
    uuid = "E1951F95-BDC9-4EA5-AA05-0B4F651FE3C4"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B3696AE1-BE0D-47FB-BC15-6E69F487810A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Communicator/View/Feed/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "B3696AE1-BE0D-47FB-BC15-6E69F487810A - b83a4e8712743072"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of Communicator.FeedCell.commentView : some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of Communicator.FeedCell.makeLikeButton() -&gt; some&gt;&gt;.0, SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of Communicator.FeedCell.commentView : some&gt;&gt;.0, Communicator.CommentsView&gt;, &lt;&lt;opaque return type of Communicator.FeedCell.makeButton(iconName: Swift.String) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.postImageView : some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.likesView : some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.postDescriptionView : some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.postAgeView : some&gt;&gt;.0)&gt; in Communicator.FeedCell.body.getter : some"
+                  moduleName = "Communicator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/olhabereziuk/Desktop/Communicator/Communicator/Communicator/View/Feed/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "B3696AE1-BE0D-47FB-BC15-6E69F487810A - c9f1025c4d84dd97"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of Communicator.FeedCell.commentsIcon : some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of Communicator.FeedCell.likeIcon : some&gt;&gt;.0, SwiftUI.NavigationLink&lt;&lt;&lt;opaque return type of Communicator.FeedCell.commentsIcon : some&gt;&gt;.0, Communicator.CommentsView&gt;, &lt;&lt;opaque return type of Communicator.FeedCell.makeButton(iconName: Swift.String) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.postImageView : some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.likesView : some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.postDescriptionView : some&gt;&gt;.0, &lt;&lt;opaque return type of Communicator.FeedCell.postAgeView : some&gt;&gt;.0)&gt; in Communicator.FeedCell.body.getter : some"
+                  moduleName = "Communicator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/olhabereziuk/Desktop/Communicator/Communicator/Communicator/View/Feed/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
