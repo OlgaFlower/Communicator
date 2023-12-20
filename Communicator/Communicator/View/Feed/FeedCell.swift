@@ -41,7 +41,9 @@ struct FeedCell: View {
             .padding(.leading, 4.0)
             .foregroundColor(.black)
             
-            self.likesView
+            NavigationLink(destination: LikesView(postId: self.viewModel.post.id)) {
+                self.likesView
+            }
             self.postDescriptionView
             self.postAgeView
         }

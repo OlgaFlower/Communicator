@@ -12,7 +12,6 @@ class CommentViewModel: ObservableObject {
     
     // MARK: - Properties
     @Published var comments = [CommentModel]()
-    
     private var post: PostModel
     
     // MARK: - Init
