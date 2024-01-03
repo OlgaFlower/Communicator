@@ -42,7 +42,9 @@ struct FeedCell: View {
             .foregroundColor(.black)
             
             NavigationLink(destination: LikesView(postId: self.viewModel.post.id)) {
-                self.likesView
+                if self.viewModel.post.likes > 1 {
+                    self.likesView
+                }
             }
             self.postDescriptionView
             self.postAgeView
