@@ -24,6 +24,11 @@ class ProfileViewModel: ObservableObject {
             // TODO: - Handle error
             
             self.user.isFollowed = true
+            
+            NotificationsViewModel.uploadNotification(
+                toUid: uid,
+                type: .follow
+            )
         }
     }
     

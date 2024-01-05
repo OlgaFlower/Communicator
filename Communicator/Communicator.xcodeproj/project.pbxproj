@@ -73,6 +73,8 @@
 		42BAAF1A2B10AEAC005680FD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF192B10AEAC005680FD /* ProfileViewModel.swift */; };
 		42BAAF1C2B10B5C0005680FD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF1B2B10B5C0005680FD /* UserService.swift */; };
 		42BAAF2B2B15C950005680FD /* UploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAAF2A2B15C950005680FD /* UploadPostViewModel.swift */; };
+		42D6E4662B47FFB6004A372E /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6E4652B47FFB6004A372E /* NotificationModel.swift */; };
+		42D6E46A2B484692004A372E /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6E4692B484692004A372E /* NotificationsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +136,8 @@
 		42BAAF192B10AEAC005680FD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		42BAAF1B2B10B5C0005680FD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		42BAAF2A2B15C950005680FD /* UploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewModel.swift; sourceTree = "<group>"; };
+		42D6E4652B47FFB6004A372E /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		42D6E4692B484692004A372E /* NotificationsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,7 +274,7 @@
 				42BAAEA62B05F783005680FD /* View */,
 				42BAAEA72B05F78A005680FD /* ViewModel */,
 				42BAAEA82B05F7B4005680FD /* API */,
-				42BAAEA92B05F7BF005680FD /* Helpers */,
+				42BAAEA92B05F7BF005680FD /* Utils */,
 				42BAAE9D2B05F6FB005680FD /* Preview Content */,
 			);
 			path = Communicator;
@@ -292,6 +296,7 @@
 				42A8EB462B272F1D000198A0 /* PostModel.swift */,
 				42A8EB5B2B2DF60A000198A0 /* CommentModel.swift */,
 				4263CD782B3381C100FC904B /* LikesModel.swift */,
+				42D6E4652B47FFB6004A372E /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,7 +342,7 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		42BAAEA92B05F7BF005680FD /* Helpers */ = {
+		42BAAEA92B05F7BF005680FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				4265418B2B176804001B0DB0 /* CustomColors */,
@@ -345,7 +350,7 @@
 				426541812B166BCF001B0DB0 /* CustomViews */,
 				426541822B166BF5001B0DB0 /* Constants */,
 			);
-			path = Helpers;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		42BAAEAA2B05F81D005680FD /* Main */ = {
@@ -449,6 +454,7 @@
 		42BAAEB62B05F990005680FD /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				42D6E4692B484692004A372E /* NotificationsViewModel.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -562,6 +568,7 @@
 				4263CD6F2B30F88F00FC904B /* CommentsView.swift in Sources */,
 				42A8EB532B29DF53000198A0 /* FeedCellViewModel.swift in Sources */,
 				42BAAEBC2B064A27005680FD /* FeedView.swift in Sources */,
+				42D6E46A2B484692004A372E /* NotificationsViewModel.swift in Sources */,
 				4263CD6E2B30F88F00FC904B /* CommentCell.swift in Sources */,
 				42BAAE982B05F6F9005680FD /* CommunicatorApp.swift in Sources */,
 				42A8EB632B2DF6A1000198A0 /* CommentViewModel.swift in Sources */,
@@ -582,6 +589,7 @@
 				42BAAF122B0E99EA005680FD /* FirestoreConstants.swift in Sources */,
 				42BAAF1A2B10AEAC005680FD /* ProfileViewModel.swift in Sources */,
 				42BAAEC22B064A80005680FD /* ProfileView.swift in Sources */,
+				42D6E4662B47FFB6004A372E /* NotificationModel.swift in Sources */,
 				42BAAEDA2B0A3FD5005680FD /* ImagePicker.swift in Sources */,
 				42BAAF1C2B10B5C0005680FD /* UserService.swift in Sources */,
 				42BAAED42B09E477005680FD /* ProfileHeaderView.swift in Sources */,
