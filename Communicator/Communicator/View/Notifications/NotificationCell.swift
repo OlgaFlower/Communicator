@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NotificationCell: View {
     
     // MARK: - Properties
     @State private var showPostImage = false
+    let notification: NotificationModel
     
     // MARK: - Body
     var body: some View {
@@ -20,10 +22,10 @@ struct NotificationCell: View {
             self.textView
             Spacer()
             
-            if showPostImage {
-                self.postImageView
-            } else {
+            if self.notification.type == .follow {
                 self.followButtonView
+            } else {
+                self.postImageView
             }
         }
         .padding(.horizontal)
@@ -31,7 +33,7 @@ struct NotificationCell: View {
     
     // MARK: - Views
     private var imageView: some View {
-        Image("avatar3")
+        KFImage(URL(string: self.notification.profileImageUrl))
             .resizable()
             .scaledToFill()
             .frame(width: 48, height: 48)
@@ -39,10 +41,10 @@ struct NotificationCell: View {
     }
     
     private var textView: some View {
-        Text("Lisa_32")
+        Text(self.notification.userName)
             .font(.system(size: 14, weight: .semibold))
         +
-        Text(" liked one of your posts.")
+        Text(self.notification.type.notificationMessage)
             .font(.system(size: 15))
     }
     
@@ -66,9 +68,4 @@ struct NotificationCell: View {
                 .font(.system(size: 14, weight: .semibold))
         }
     }
-}
-
-// MARK: - Preview
-#Preview {
-    NotificationCell()
 }

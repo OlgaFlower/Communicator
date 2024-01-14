@@ -12,8 +12,8 @@ struct NotificationModel: Identifiable, Codable {
     let postId: String?
     let userName: String
     let profileImageUrl: String
-    let timeStamp: Timestamp
-    let type: Int
+    let timestamp: Timestamp
+    let type: NotificationType
     let uid: String // uid of the person who sent that notification
 }
 
