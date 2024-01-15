@@ -33,8 +33,10 @@ struct NotificationCell: View {
             
             if self.viewModel.notification.type == .follow {
                 self.followButtonView
-            } else {
-                self.postImageView
+            }
+            
+            if let post = self.viewModel.notification.post {
+                self.loadPostImage(post: post)
             }
         }
         .padding(.horizontal)
@@ -57,11 +59,12 @@ struct NotificationCell: View {
             .font(.system(size: 15))
     }
     
-    private var postImageView: some View {
-        Image("avatar3")
+    private func loadPostImage(post: PostModel) -> some View {
+        KFImage(URL(string: post.imageUrl))
             .resizable()
             .scaledToFill()
             .frame(width: 48, height: 48)
+            .clipped()
     }
     
     private var followButtonView: some View {

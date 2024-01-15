@@ -15,7 +15,9 @@ struct NotificationModel: Identifiable, Codable {
     let timestamp: Timestamp
     let type: NotificationType
     let uid: String // uid of the person who sent that notification
+    
     var isFollowed: Bool? = false
+    var post: PostModel?
 }
 
 enum NotificationType: Int, Codable {
