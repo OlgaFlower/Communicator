@@ -42,7 +42,9 @@ struct NotificationCell: View {
             }
             
             if let post = self.viewModel.notification.post {
-                self.loadPostImage(post: post)
+                NavigationLink(destination: FeedCell(viewModel: FeedCellViewModel(post: post))) {
+                    self.loadPostImage(post: post)
+                }
             }
         }
         .padding(.horizontal)
