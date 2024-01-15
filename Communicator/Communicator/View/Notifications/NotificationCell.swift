@@ -27,7 +27,13 @@ struct NotificationCell: View {
     var body: some View {
         
         HStack {
-            self.imageView
+            if let user = self.viewModel.notification.user {
+                NavigationLink(destination: ProfileView(user: user)) {
+                    self.imageView
+                }
+            }
+            
+            // TODO: - add nav link leading to the commented or liked post
             self.textView
             Spacer()
             

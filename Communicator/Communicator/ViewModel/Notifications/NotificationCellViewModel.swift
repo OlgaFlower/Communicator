@@ -17,6 +17,7 @@ class NotificationCellViewModel: ObservableObject {
         self.notification = notification
         self.checkIfUserIsFollowed()
         self.fetchNotificationPost()
+        self.fetchNotificationUser()
     }
     
     // MARK: - Functions
@@ -45,6 +46,14 @@ class NotificationCellViewModel: ObservableObject {
         guard let postId = self.notification.postId else { return }
         COLLECTION_POSTS.document(postId).getDocument { snapshot, _ in
             self.notification.post = try? snapshot?.data(as: PostModel.self)
+        }
+    }
+    
+    func fetchNotificationUser() {
+        COLLECTION_USERS.document(self.notification.uid).getDocument { snapshot, _ in
+            self.notification.user = try? snapshot?.data(as: User.self)
+            
+            print("DEBUG: User is \(self.notification.user?.userName)")
         }
     }
 }

@@ -7,6 +7,8 @@
 
 import FirebaseFirestore
 
+// This model displays for current user (me) data of people who liked or commented its (my) posts
+
 struct NotificationModel: Identifiable, Codable {
     @DocumentID var id: String?
     let postId: String?
@@ -16,8 +18,9 @@ struct NotificationModel: Identifiable, Codable {
     let type: NotificationType
     let uid: String // uid of the person who sent that notification
     
-    var isFollowed: Bool? = false
+    var isFollowed: Bool? = false //do I follow this guy?
     var post: PostModel?
+    var user: User? //person who liked or commented my post
 }
 
 enum NotificationType: Int, Codable {
