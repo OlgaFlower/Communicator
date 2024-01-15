@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: - Display posts according to load time
+
 struct FeedView: View {
     // MARK: - Properties
     @ObservedObject var viewModel = FeedViewModel()

@@ -29,6 +29,7 @@ class NotificationsViewModel: ObservableObject {
         }
     }
     
+    // TODO: - refactor static access to dependency inj.
     static func uploadNotification(toUid uid: String, type: NotificationType, post: PostModel? = nil) {
         
         guard let user = AuthViewModel.shared.currentUser else { return }
@@ -37,7 +38,7 @@ class NotificationsViewModel: ObservableObject {
             "timestamp" : Timestamp(date: Date()),
             "userName" : user.userName,
             "uid" : user.id ?? "", //current user
-            "profileImageUrl" : user.profileImageUrl,
+            "profileImageUrl" : user.profileImageUrl ?? "",
             "type" : type.rawValue
         ]
         

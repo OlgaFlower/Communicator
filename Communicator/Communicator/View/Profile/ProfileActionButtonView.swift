@@ -46,6 +46,7 @@ struct ProfileActionButtonView: View {
         })
     }
     
+    // TODO: - correct Follow and Message button design
     private var followButtonView: some View {
         Button(action: {
             self.isFollowed ? self.viewModel.unfollow() : self.viewModel.follow()
@@ -54,7 +55,7 @@ struct ProfileActionButtonView: View {
                 .font(.system(size: 14.0, weight: .semibold))
                 .frame(width: self.buttonWidth / 2, height: 32.0)
                 .foregroundColor(self.isFollowed ? .black : .white)
-                .background(isFollowed ? Color.white : Color.blue)
+                .background(self.isFollowed ? Color.white : Color.blue)
                 .overlay (
                     RoundedRectangle(cornerRadius: 3.0)
                         .stroke(Color.gray, lineWidth: self.isFollowed ? 1.0 : 0.0)

@@ -12,7 +12,16 @@ struct NotificationCell: View {
     
     // MARK: - Properties
     @State private var showPostImage = false
-    let notification: NotificationModel
+    @ObservedObject var viewModel: NotificationCellViewModel
+    
+    var isFollowed: Bool {
+        return self.viewModel.notification.isFollowed ?? false
+    }
+    
+    // MARK: - Initializator
+    init(notification: NotificationModel) {
+        self.viewModel = NotificationCellViewModel(notification: notification)
+    }
     
     // MARK: - Body
     var body: some View {
@@ -22,7 +31,7 @@ struct NotificationCell: View {
             self.textView
             Spacer()
             
-            if self.notification.type == .follow {
+            if self.viewModel.notification.type == .follow {
                 self.followButtonView
             } else {
                 self.postImageView
@@ -33,7 +42,7 @@ struct NotificationCell: View {
     
     // MARK: - Views
     private var imageView: some View {
-        KFImage(URL(string: self.notification.profileImageUrl))
+        KFImage(URL(string: self.viewModel.notification.profileImageUrl))
             .resizable()
             .scaledToFill()
             .frame(width: 48, height: 48)
@@ -41,10 +50,10 @@ struct NotificationCell: View {
     }
     
     private var textView: some View {
-        Text(self.notification.userName)
+        Text(self.viewModel.notification.userName)
             .font(.system(size: 14, weight: .semibold))
         +
-        Text(self.notification.type.notificationMessage)
+        Text(self.viewModel.notification.type.notificationMessage)
             .font(.system(size: 15))
     }
     
@@ -57,15 +66,20 @@ struct NotificationCell: View {
     
     private var followButtonView: some View {
         Button {
-            
+            self.isFollowed ? self.viewModel.unfollow() : self.viewModel.follow()
         } label: {
-            Text("Follow")
+            Text(self.isFollowed ? "Following" : "Follow")
                 .padding(.horizontal, 20.0)
                 .padding(.vertical, 8.0)
-                .background(Color(.systemBlue))
-                .foregroundColor(.white)
-                .clipShape(Capsule())
+                .frame(width: 112.0, height: 32.0)
+                .background(self.isFollowed ? Color.white : Color.blue)
+                .foregroundColor(self.isFollowed ? .black : .white)
                 .font(.system(size: 14, weight: .semibold))
+                .clipShape(Capsule())
+                .overlay (
+                    Capsule()
+                        .stroke(Color.gray, lineWidth: self.isFollowed ? 1.0 : 0.0)
+                )
         }
     }
 }
