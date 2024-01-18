@@ -40,7 +40,7 @@ struct CommentCell: View {
         HStack {
             Text(self.comment.userName)
                 .font(.system(size: 14.0, weight: .semibold))
-            Text("2m")
+            Text(" \(self.comment.timestampString)")
                 .foregroundColor(.gray)
                 .font(.system(size: 12))
         }

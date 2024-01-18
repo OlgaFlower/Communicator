@@ -65,6 +65,10 @@ struct NotificationCell: View {
         +
         Text(self.viewModel.notification.type.notificationMessage)
             .font(.system(size: 15))
+        +
+        Text(" \(self.viewModel.timestampString)")
+            .foregroundStyle(.gray)
+            .font(.system(size: 12))
     }
     
     private func loadPostImage(post: PostModel) -> some View {

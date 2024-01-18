@@ -129,7 +129,7 @@ struct FeedCell: View {
     }
     
     private var postAgeView: some View {
-        Text("2d")
+        Text(self.viewModel.timestampString)
             .font(.system(size: 14))
             .foregroundColor(.gray)
             .padding(.leading, 8.0)

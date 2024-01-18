@@ -12,6 +12,16 @@ class NotificationCellViewModel: ObservableObject {
     // MARK: - Properties
     @Published var notification: NotificationModel
     
+    // TODO: - Refactor timestampString property duplication
+    var timestampString: String {
+        guard let timestamp = self.notification.post?.timestamp.dateValue() else { return "" }
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        return formatter.string(from: timestamp, to: Date()) ?? ""
+    }
+    
     // MARK: - Initializator
     init(notification: NotificationModel) {
         self.notification = notification

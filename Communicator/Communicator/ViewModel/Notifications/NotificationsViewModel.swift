@@ -33,6 +33,7 @@ class NotificationsViewModel: ObservableObject {
     static func uploadNotification(toUid uid: String, type: NotificationType, post: PostModel? = nil) {
         
         guard let user = AuthViewModel.shared.currentUser else { return }
+        guard uid != user.id else { return } // return if this notification is about "my" like/comment to "my" post
         
         var data: [String: Any] = [
             "timestamp" : Timestamp(date: Date()),
