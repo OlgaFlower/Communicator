@@ -18,7 +18,7 @@ class FeedViewModel: ObservableObject {
     
     // MARK: - Functions
     func fetchPosts() {
-        COLLECTION_POSTS.getDocuments { snapshot, error in
+        COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { snapshot, error in
             
             // TODO: - Handle error
             if let error = error {
