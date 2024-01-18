@@ -20,11 +20,10 @@ struct ProfileHeaderView: View {
             HStack {
                 self.imageView
                 Spacer()
-                
                 HStack(spacing: 12.0) {
-                    UserStatView(value: 1, title: "Post")
-                    UserStatView(value: 2, title: "Followers")
-                    UserStatView(value: 4, title: "Following")
+                    UserStatView(value: self.viewModel.user.statistic?.posts ?? 0, title: "Post")
+                    UserStatView(value: self.viewModel.user.statistic?.followers ?? 0, title: "Followers")
+                    UserStatView(value: self.viewModel.user.statistic?.following ?? 0, title: "Following")
                 }
             }
             .padding(.horizontal)

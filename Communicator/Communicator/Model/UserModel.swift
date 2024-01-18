@@ -13,7 +13,14 @@ struct User: Identifiable, Codable {
     let profileImageUrl: String?
     let fullName: String
     @DocumentID var id: String?
+    var statistic: UserStatisticModel?
     var isFollowed: Bool?
     
     var isCurrentUser: Bool { return AuthViewModel.shared.userSession?.uid == id }
+}
+
+struct UserStatisticModel: Codable {
+    var following: Int
+    var posts: Int
+    var followers: Int
 }
