@@ -24,7 +24,9 @@ struct UserListView: View {
             LazyVStack {
                 ForEach(self.users) { user in
                     NavigationLink(
-                        destination: ProfileView(user: user)) {
+                        // TODO: - Check and refactor other views for unnecessary preloading of the user data 
+                        destination: LazyView(ProfileView(user: user)) // LazyView allow to build view when its necessary and avoid fetching all profiles in a list atonce
+                    ) {
                             UserCell(user: user)
                                 .padding(.leading)
                         }

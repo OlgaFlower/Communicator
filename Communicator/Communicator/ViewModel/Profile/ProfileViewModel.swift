@@ -67,8 +67,6 @@ class ProfileViewModel: ObservableObject {
                         posts: posts,
                         followers: followers
                     )
-                    
-                    print("STATISTIC - \(self.user.statistic)")
                 }
             }
         }
