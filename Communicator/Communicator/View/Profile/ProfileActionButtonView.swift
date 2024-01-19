@@ -11,6 +11,7 @@ struct ProfileActionButtonView: View {
     
     // MARK: - Properties
     @ObservedObject var viewModel: ProfileViewModel
+    @State var showEditProfile = false
     
     var isFollowed: Bool {
         return self.viewModel.user.isFollowed ?? false
@@ -33,7 +34,7 @@ struct ProfileActionButtonView: View {
     // MARK: - Views
     private var editProfileButtonView: some View {
         Button(action: {
-            
+            self.showEditProfile.toggle()
         }, label: {
             Text("Edit profile")
                 .font(.system(size: 14.0, weight: .semibold))
@@ -44,6 +45,9 @@ struct ProfileActionButtonView: View {
                         .stroke(Color.gray, lineWidth: 1.0)
                 )
         })
+        .sheet(isPresented: self.$showEditProfile) { 
+            EditProfileView(user: $viewModel.user)
+        }
     }
     
     // TODO: - correct Follow and Message button design

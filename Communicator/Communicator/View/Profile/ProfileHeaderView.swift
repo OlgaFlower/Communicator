@@ -28,7 +28,10 @@ struct ProfileHeaderView: View {
             }
             .padding(.horizontal)
             self.usernameView
-            self.userDescriptionView
+            
+            if let bio = self.viewModel.user.bio {
+                self.userBioView(bio)
+            }
         }
         
         HStack {
@@ -51,8 +54,9 @@ struct ProfileHeaderView: View {
             .padding(.leading)
     }
     
-    private var userDescriptionView: some View {
-        Text("UI/UX Designer | Blogger")
+    
+    private func userBioView(_ bio: String) -> some View {
+        Text(bio)
             .font(.system(size: 15.0))
             .padding(.leading)
             .padding(.top, 1.0)
