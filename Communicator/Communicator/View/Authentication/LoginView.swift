@@ -37,7 +37,10 @@ struct LoginView: View {
                     
                     VStack(spacing: 4.0) {
                         self.signInButtonView
-                        self.forgotPasswordButtonView
+                        
+                        NavigationLink(destination: ResetPasswordView(email: $email)) {
+                            self.forgotPasswordView
+                        }
                     }
                     Spacer()
                     
@@ -84,17 +87,10 @@ struct LoginView: View {
         )
     }
     
-    private var forgotPasswordButtonView: some View {
-        Button(
-            action: {
-                
-            },
-            label: {
-                Text("Forgot password?")
-                    .font(.system(size: 13, weight: .semibold))
-                    .foregroundColor(.white)
-            }
-        )
+    private var forgotPasswordView: some View {
+        Text("Forgot password?")
+            .font(.system(size: 13, weight: .semibold))
+            .foregroundColor(.white)
     }
     
     private var signInButtonView: some View {
