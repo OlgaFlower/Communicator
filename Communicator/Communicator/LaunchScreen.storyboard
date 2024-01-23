@@ -18,14 +18,23 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenGradientImg" translatesAutoresizingMaskIntoConstraints="NO" id="Mp8-OZ-Bqf">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Communicator" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHu-tO-WBT">
+                                <rect key="frame" x="75.000000000000014" y="387.66666666666669" width="243.33333333333337" height="77"/>
+                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="65"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mp8-OZ-Bqf" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="3np-q1-QoX"/>
+                            <constraint firstItem="LHu-tO-WBT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="C2a-iX-sUG"/>
                             <constraint firstAttribute="bottom" secondItem="Mp8-OZ-Bqf" secondAttribute="bottom" id="Y2U-mU-Ey6"/>
                             <constraint firstItem="Mp8-OZ-Bqf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="erO-vL-Wty"/>
                             <constraint firstItem="Mp8-OZ-Bqf" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="ewb-5z-yOw"/>
+                            <constraint firstItem="LHu-tO-WBT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wEY-ge-i2n"/>
                         </constraints>
                     </view>
                 </viewController>
