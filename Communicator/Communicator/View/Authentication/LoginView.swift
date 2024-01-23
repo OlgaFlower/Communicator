@@ -15,6 +15,7 @@ struct LoginView: View {
     @State private var password = ""
     @State private var showLoginForm = false
     @State private var logoPosition: CGFloat = 0.0
+    @State private var foregroundColor: Color = .white
     
     let padding = LayoutConstants.paddingHorizont
     let btnWidth = LayoutConstants.onboardingBtnWidth
@@ -33,7 +34,7 @@ struct LoginView: View {
                     
                     self.appLogoView
                         .offset(y: self.logoPosition - 10) // TODO: - fix initial center positioning according to LaunchScreen
-                        .animation(.linear(duration: 1.0), value: logoPosition)
+                        .animation(.linear(duration: 0.7), value: logoPosition)
                     
                     if self.showLoginForm {
                         
@@ -70,15 +71,30 @@ struct LoginView: View {
             }
             .onAppear {
                 
+                // Logo & Login form animation
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     withAnimation {
                         self.logoPosition = -geometry.size.height / 2 + 122
                     }
                 }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                     withAnimation {
                         self.showLoginForm = true
+                    }
+                }
+                
+                // Logo label visibility according to keyboard visibility
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
+                    withAnimation {
+                        self.foregroundColor = .clear
+                    }
+                }
+                
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+                    withAnimation {
+                        self.foregroundColor = .white
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }
                 }
             }
@@ -91,7 +107,8 @@ struct LoginView: View {
             .font(
                 .custom("SavoyeLetPlain", size: 65)
             )
-            .foregroundColor(.white)
+            .foregroundColor(self.foregroundColor)
+            .frame(width: 250.0)
     }
     
     private var emailField: some View {

@@ -26,6 +26,7 @@ struct CustomTextField: View {
                     self.iconView
                     TextField(placeholder, text: $text)
                         .foregroundColor(.white)
+                        .autocorrectionDisabled()
                 }
                     .padding(.horizontal, 20.0)
             )

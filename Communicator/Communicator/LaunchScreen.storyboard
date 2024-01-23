@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,11 +26,19 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from Olha Bereziuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6he-rU-bnr">
+                                <rect key="frame" x="129.66666666666669" y="786.66666666666663" width="133.66666666666669" height="19.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mp8-OZ-Bqf" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="3np-q1-QoX"/>
+                            <constraint firstItem="6he-rU-bnr" firstAttribute="bottom" secondItem="Bcu-3y-fUS" secondAttribute="bottom" constant="-12" id="4bs-Vf-mz6"/>
+                            <constraint firstItem="6he-rU-bnr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ams-F5-JUz"/>
                             <constraint firstItem="LHu-tO-WBT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="C2a-iX-sUG"/>
                             <constraint firstAttribute="bottom" secondItem="Mp8-OZ-Bqf" secondAttribute="bottom" id="Y2U-mU-Ey6"/>
                             <constraint firstItem="Mp8-OZ-Bqf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="erO-vL-Wty"/>
@@ -45,5 +54,8 @@
     </scenes>
     <resources>
         <image name="launchScreenGradientImg" width="205" height="320.33334350585938"/>
+        <namedColor name="AccentColor">
+            <color red="0.25098039215686274" green="0.78823529411764703" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
