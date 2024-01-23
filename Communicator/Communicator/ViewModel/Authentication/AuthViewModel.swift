@@ -15,6 +15,8 @@ class AuthViewModel: ObservableObject {
     @Published var currentUser: User?
     @Published var didSendResetPasswordLink = false
     
+    @Published var errorStatus: ErrorMessages?
+    
     static let shared = AuthViewModel()
     
     // MARK: - Initializator
@@ -30,6 +32,8 @@ class AuthViewModel: ObservableObject {
             if let error = error {
                 // TODO: - Handle error
                 print("DEBUG: Login failed \(error.localizedDescription)")
+                
+                self.errorStatus = .loginFailed
                 return
             }
             
@@ -99,5 +103,9 @@ class AuthViewModel: ObservableObject {
             self.currentUser = user
             print(user)
         }
+    }
+    
+    func hideErrorMessage() {
+        self.errorStatus = nil
     }
 }

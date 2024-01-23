@@ -45,6 +45,11 @@ struct LoginView: View {
                                     .padding(.horizontal, self.padding)
                                 self.passwordField
                                     .padding(.horizontal, self.padding)
+                                
+                                if self.viewModel.errorStatus == .loginFailed, 
+                                    let text = self.viewModel.errorStatus?.text {
+                                    ErrorTextView(text: text)
+                                }
                             }
                             
                             VStack(spacing: 4.0) {
@@ -78,13 +83,13 @@ struct LoginView: View {
                     }
                 }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     withAnimation {
                         self.showLoginForm = true
                     }
                 }
                 
-                // Logo label visibility according to keyboard visibility
+                // Hide Logo label if keyboard is visible
                 NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
                     withAnimation {
                         self.foregroundColor = .clear
@@ -117,6 +122,11 @@ struct LoginView: View {
             placeholder: "Email",
             iconName: "envelope"
         )
+        .onTapGesture {
+            withAnimation {
+                self.viewModel.hideErrorMessage()
+            }
+        }
     }
     
     private var passwordField: some View {
@@ -125,12 +135,22 @@ struct LoginView: View {
             placeholder: "Password",
             iconName: "lock"
         )
+        .onTapGesture {
+            withAnimation {
+                self.viewModel.hideErrorMessage()
+            }
+        }
     }
     
     private var forgotPasswordView: some View {
-        Text("Forgot password?")
-            .font(.system(size: 13, weight: .semibold))
-            .foregroundColor(.white)
+        HStack {
+            Text("Forgot password?")
+                .font(.system(size: 14))
+                .foregroundColor(.white)
+            Text("Reset it")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(.white)
+        }
     }
     
     private var signInButtonView: some View {
