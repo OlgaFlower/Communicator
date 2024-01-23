@@ -10,6 +10,7 @@ import SwiftUI
 struct AddImageView: View {
     
     // MARK: - Properties
+    @Binding var foregroundColor: Color
     let width = LayoutConstants.onboardingRoundedImgWidth
     
     // MARK: - Body
@@ -17,7 +18,7 @@ struct AddImageView: View {
         
         ZStack {
             Circle()
-                .stroke(.accent, lineWidth: 1.0)
+                .stroke(self.foregroundColor, lineWidth: 1.0)
             
             Image("addIcon")
                 .renderingMode(.template)
@@ -27,7 +28,7 @@ struct AddImageView: View {
                     width: 24.0,
                     height: 24.0
                 )
-                .foregroundColor(.white)
+                .foregroundColor(self.foregroundColor)
         }
         .frame(
             width: self.width,
@@ -38,5 +39,5 @@ struct AddImageView: View {
 
 // MARK: - Preview
 #Preview {
-    AddImageView()
+    AddImageView(foregroundColor: .constant(.accent))
 }

@@ -17,6 +17,7 @@ struct RegistrationView: View {
     @State private var selectedImage: UIImage?
     @State private var image: Image?
     @State var imagePickerPresented = false
+    @State private var foregroundColor: Color = .accentColor
     @Environment(\.presentationMode) var mode
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -36,6 +37,10 @@ struct RegistrationView: View {
                 self.addImageView
                 self.emailField
                     .padding(.horizontal, self.padding)
+                
+                if !self.viewModel.isEmailValid {
+                    ErrorTextView(text: ErrorMessages.emailFailedValidation.text)
+                }
                 self.usernameField
                     .padding(.horizontal, self.padding)
                 self.fullNameField
@@ -48,6 +53,22 @@ struct RegistrationView: View {
                 self.signInField
             }
             .padding(.top, 56)
+            .onAppear {
+                
+                // Hide AddImage if keyboard is visible
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
+                    withAnimation {
+                        self.foregroundColor = .clear
+                    }
+                }
+                
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+                    withAnimation {
+                        self.foregroundColor = .accentColor
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }
+                }
+            }
         }
     }
     
@@ -70,7 +91,7 @@ struct RegistrationView: View {
                         self.imagePickerPresented.toggle()
                     },
                     label: {
-                        AddImageView()
+                        AddImageView(foregroundColor: self.$foregroundColor)
                     }
                 )
                 .sheet(
@@ -91,6 +112,11 @@ struct RegistrationView: View {
             placeholder: "Email",
             iconName: "envelope"
         )
+        .onTapGesture {
+            withAnimation {
+                self.viewModel.isEmailValid = true
+            }
+        }
     }
     
     private var usernameField: some View {
@@ -115,21 +141,33 @@ struct RegistrationView: View {
             placeholder: "Password",
             iconName: "lock"
         )
+        .onTapGesture {
+            withAnimation {
+                self.viewModel.isPasswordValid = true
+            }
+        }
     }
     
     private var signUpButtonView: some View {
         Button(
             action: {
-                self.viewModel.register(
-                    newUser:
-                        NewUserModel(
-                            email: self.email,
-                            password: self.password,
-                            image: self.selectedImage,
-                            fullName: self.fullName,
-                            userName: self.userName
-                        )
-                )
+                
+                self.viewModel.validateEmailAndPassword(self.email, self.password)
+                
+                if self.viewModel.isEmailValid, self.viewModel.isPasswordValid {
+                    
+                    self.viewModel.register(
+                        newUser:
+                            NewUserModel(
+                                email: self.email,
+                                password: self.password,
+                                image: self.selectedImage,
+                                fullName: self.fullName,
+                                userName: self.userName
+                            )
+                    )
+                }
+                
             },
             label: {
                 Text("Sign Up")

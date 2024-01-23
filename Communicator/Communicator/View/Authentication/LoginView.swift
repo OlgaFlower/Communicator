@@ -46,9 +46,10 @@ struct LoginView: View {
                                 self.passwordField
                                     .padding(.horizontal, self.padding)
                                 
-                                if self.viewModel.errorStatus == .loginFailed, 
-                                    let text = self.viewModel.errorStatus?.text {
-                                    ErrorTextView(text: text)
+                                if !self.viewModel.loginCredentialsValid {
+                                    withAnimation {
+                                        ErrorTextView(text: ErrorMessages.loginFailed.text)
+                                    }
                                 }
                             }
                             
@@ -124,7 +125,7 @@ struct LoginView: View {
         )
         .onTapGesture {
             withAnimation {
-                self.viewModel.hideErrorMessage()
+                self.viewModel.loginCredentialsValid = true
             }
         }
     }
@@ -137,7 +138,7 @@ struct LoginView: View {
         )
         .onTapGesture {
             withAnimation {
-                self.viewModel.hideErrorMessage()
+                self.viewModel.loginCredentialsValid = true
             }
         }
     }

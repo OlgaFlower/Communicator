@@ -15,7 +15,9 @@ class AuthViewModel: ObservableObject {
     @Published var currentUser: User?
     @Published var didSendResetPasswordLink = false
     
-    @Published var errorStatus: ErrorMessages?
+    @Published var loginCredentialsValid = true
+    @Published var isEmailValid = true
+    @Published var isPasswordValid = true
     
     static let shared = AuthViewModel()
     
@@ -33,7 +35,7 @@ class AuthViewModel: ObservableObject {
                 // TODO: - Handle error
                 print("DEBUG: Login failed \(error.localizedDescription)")
                 
-                self.errorStatus = .loginFailed
+                self.loginCredentialsValid = false
                 return
             }
             
@@ -105,7 +107,17 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func hideErrorMessage() {
-        self.errorStatus = nil
+    func validateEmailAndPassword(_ email: String, _ password: String) {
+            self.isEmailValid = self.validateEmail(email)
+        }
+}
+
+// MARK: - Validation
+extension AuthViewModel {
+    
+    private func validateEmail(_ email: String) -> Bool {
+        let emailRegex = #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
     }
 }
