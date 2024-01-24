@@ -129,13 +129,25 @@ class AuthViewModel: ObservableObject {
         _ username: String,
         _ fullname: String
     ) {
-        self.isUsernameValid = username.count >= 5
-        self.isFullnameValid = fullname.count >= 3
+        self.isUsernameValid = self.validateUsername(username)
+        self.isFullnameValid = self.validateFullName(fullname)
     }
 }
 
 // MARK: - Validation
 extension AuthViewModel {
+    
+    private func validateUsername(_ username: String) -> Bool {
+        let usernameRegex = "^[a-z0-9_]{5,12}$"
+        let usernamePredicate = NSPredicate(format: "SELF MATCHES %@", usernameRegex)
+        return usernamePredicate.evaluate(with: username)
+    }
+    
+    private func validateFullName(_ name: String) -> Bool {
+            let nameRegex = "^[a-zA-Z0-9]{5,18}$"
+            let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
+            return namePredicate.evaluate(with: name)
+        }
     
     private func validateEmail(_ email: String) -> Bool {
         let emailRegex = #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
