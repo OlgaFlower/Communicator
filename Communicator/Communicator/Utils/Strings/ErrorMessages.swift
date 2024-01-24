@@ -13,6 +13,7 @@ enum ErrorMessages {
     case passwordFailedValidation
     case usernameNotValid
     case fullnameNotValid
+    case registrationFailed
     
     var text: String {
         switch self {
@@ -26,6 +27,8 @@ enum ErrorMessages {
             return "Username must be min 5 and max 12 characters, contain numbers, lowercased letters and _."
         case .fullnameNotValid:
             return "Full name must have more min 5 and max 18 characters, contain letters and numbers."
+        case .registrationFailed:
+            return "The email address is already in use by another account."
         }
     }
 }

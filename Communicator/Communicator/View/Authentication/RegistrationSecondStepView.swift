@@ -40,6 +40,9 @@ struct RegistrationSecondStepView: View {
                     if !self.viewModel.isEmailValid {
                         self.makeErrorView(with: ErrorMessages.emailFailedValidation.text)
                     }
+                    if !self.viewModel.isRegistrationSuccessful {
+                        self.makeErrorView(with: ErrorMessages.registrationFailed.text)
+                    }
                     
                     self.passwordField
                     if !self.viewModel.isPasswordValid {
@@ -68,6 +71,7 @@ struct RegistrationSecondStepView: View {
         .onTapGesture {
             withAnimation {
                 self.viewModel.isEmailValid = true
+                self.viewModel.isRegistrationSuccessful = true
             }
         }
     }

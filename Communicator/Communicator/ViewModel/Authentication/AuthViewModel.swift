@@ -20,6 +20,7 @@ class AuthViewModel: ObservableObject {
     @Published var isPasswordValid = true
     @Published var isUsernameValid = true
     @Published var isFullnameValid = true
+    @Published var isRegistrationSuccessful = true
     
     var userNamesValid: Bool {
         return self.isUsernameValid && self.isFullnameValid
@@ -63,6 +64,8 @@ class AuthViewModel: ObservableObject {
                 if let error = error {
                     // TODO: - Handle error
                     print("DEBUG: User registering failed \(error.localizedDescription)")
+                    
+                    self.isRegistrationSuccessful = false
                     return
                 }
                 
@@ -138,13 +141,13 @@ class AuthViewModel: ObservableObject {
 extension AuthViewModel {
     
     private func validateUsername(_ username: String) -> Bool {
-        let usernameRegex = "^[a-z0-9_]{5,12}$"
+        let usernameRegex = "^[a-zA-Z0-9_]{5,30}$"
         let usernamePredicate = NSPredicate(format: "SELF MATCHES %@", usernameRegex)
         return usernamePredicate.evaluate(with: username)
     }
     
     private func validateFullName(_ name: String) -> Bool {
-            let nameRegex = "^[a-zA-Z0-9]{5,18}$"
+            let nameRegex = "^[a-zA-Z0-9\\s]{3,30}$"
             let namePredicate = NSPredicate(format: "SELF MATCHES %@", nameRegex)
             return namePredicate.evaluate(with: name)
         }
