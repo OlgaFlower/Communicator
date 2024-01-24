@@ -21,8 +21,12 @@ class AuthViewModel: ObservableObject {
     @Published var isUsernameValid = true
     @Published var isFullnameValid = true
     
-    var isUserDataValid: Bool {
-        return isEmailValid && isPasswordValid && isUsernameValid && isFullnameValid
+    var userNamesValid: Bool {
+        return self.isUsernameValid && self.isFullnameValid
+    }
+    
+    var emailAndPasswordValid: Bool {
+        return self.isEmailValid && self.isPasswordValid
     }
     
     static let shared = AuthViewModel()
@@ -113,15 +117,20 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func validateUserData(_ email: String, 
-                          _ password: String,
-                          _ username: String,
-                          _ fullname: String) {
-        
+    func validateEmailAndPassword(
+        _ email: String,
+        _ password: String
+    ) {
         self.isEmailValid = self.validateEmail(email)
         self.isPasswordValid = self.validatePassword(password)
-        self.isUsernameValid = username.count >= 3
-        self.isFullnameValid = fullname.count >= 1
+    }
+    
+    func validateUserNameAndFullName(
+        _ username: String,
+        _ fullname: String
+    ) {
+        self.isUsernameValid = username.count >= 5
+        self.isFullnameValid = fullname.count >= 3
     }
 }
 

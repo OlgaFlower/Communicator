@@ -10,7 +10,7 @@ import SwiftUI
 struct AddImageView: View {
     
     // MARK: - Properties
-    @Binding var foregroundColor: Color
+    var foregroundColor: Color
     let width = LayoutConstants.onboardingRoundedImgWidth
     
     // MARK: - Body
@@ -39,5 +39,5 @@ struct AddImageView: View {
 
 // MARK: - Preview
 #Preview {
-    AddImageView(foregroundColor: .constant(.accent))
+    AddImageView(foregroundColor: .accentColor)
 }

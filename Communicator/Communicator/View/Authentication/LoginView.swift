@@ -66,7 +66,8 @@ struct LoginView: View {
                         VStack {
                             Spacer()
                             NavigationLink {
-                                RegistrationView()
+                                
+                                RegistrationFirstStepView()
                                     .navigationBarBackButtonHidden()
                             } label: {
                                 self.signUpField
@@ -186,7 +187,7 @@ struct LoginView: View {
             Text("Sign Up")
                 .font(.system(size: 14, weight: .semibold))
         }
-        .padding(.bottom, 32.0)
+        .padding(.bottom, 36.0)
         .foregroundColor(.white)
     }
 }

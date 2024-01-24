@@ -10,16 +10,15 @@ import SwiftUI
 struct RegistrationView: View {
     
     // MARK: - Properties
-    @State private var email = ""
-    @State private var fullName = ""
-    @State private var userName = ""
-    @State private var password = ""
-    @State private var selectedImage: UIImage?
-    @State private var image: Image?
-    @State var imagePickerPresented = false
-    @State private var foregroundColor: Color = .accentColor
     @Environment(\.presentationMode) var mode
     @EnvironmentObject var viewModel: AuthViewModel
+    
+    @State private var email = ""
+    @State private var password = ""
+    
+    let userName: String
+    let fullname: String
+    let selectedImage: UIImage?
     
     let padding = LayoutConstants.paddingHorizont
     let imgWidth = LayoutConstants.onboardingRoundedImgWidth
@@ -33,78 +32,27 @@ struct RegistrationView: View {
         ZStack {
             BackgroundGradientView()
             
-            VStack(spacing: 12.0) {
-                self.addImageView
-                self.emailField
-                    .padding(.horizontal, self.padding)
-                
-                if !self.viewModel.isEmailValid {
-                    ErrorTextView(text: ErrorMessages.emailFailedValidation.text)
+                VStack(spacing: 12.0) {
+                    
+                    self.emailField
+                    if !self.viewModel.isEmailValid {
+                        ErrorTextView(text: ErrorMessages.emailFailedValidation.text)
+                    }
+                    
+                    self.passwordField
+                    if !self.viewModel.isPasswordValid {
+                        ErrorTextView(text: ErrorMessages.passwordFailedValidation.text)
+                    }
+                    
+                    self.signUpButtonView
+                        .padding(.top, 4.0)
                 }
-                self.usernameField
-                    .padding(.horizontal, self.padding)
-                self.fullNameField
-                    .padding(.horizontal, self.padding)
-                self.passwordField
-                    .padding(.horizontal, self.padding)
-                self.signUpButtonView
-                
+                .padding(.top, 10)
                 Spacer()
-                self.signInField
             }
-            .padding(.top, 56)
-            .onAppear {
-                
-                // Hide AddImage if keyboard is visible
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
-                    withAnimation {
-                        self.foregroundColor = .clear
-                    }
-                }
-                
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
-                    withAnimation {
-                        self.foregroundColor = .accentColor
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    }
-                }
-            }
-        }
     }
     
     // MARK: - Views
-    private var addImageView: some View {
-        Group {
-            if let image = self.image {
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(
-                        width: self.imgWidth,
-                        height: self.imgWidth
-                    )
-                    .clipShape(Circle())
-            }
-            else {
-                Button(
-                    action: {
-                        self.imagePickerPresented.toggle()
-                    },
-                    label: {
-                        AddImageView(foregroundColor: self.$foregroundColor)
-                    }
-                )
-                .sheet(
-                    isPresented: $imagePickerPresented,
-                    onDismiss: self.loadImage,
-                    content: {
-                        ImagePicker(image: $selectedImage)
-                    }
-                )
-            }
-        }
-        .padding(.bottom, 12)
-    }
     
     private var emailField: some View {
         CustomTextField(
@@ -112,27 +60,12 @@ struct RegistrationView: View {
             placeholder: "Email",
             iconName: "envelope"
         )
+        .padding(.horizontal, self.padding)
         .onTapGesture {
             withAnimation {
                 self.viewModel.isEmailValid = true
             }
         }
-    }
-    
-    private var usernameField: some View {
-        CustomTextField(
-            text: $userName,
-            placeholder: "Username",
-            iconName: "person"
-        )
-    }
-    
-    private var fullNameField: some View {
-        CustomTextField(
-            text: $fullName,
-            placeholder: "Full Name",
-            iconName: "person"
-        )
     }
     
     private var passwordField: some View {
@@ -141,6 +74,7 @@ struct RegistrationView: View {
             placeholder: "Password",
             iconName: "lock"
         )
+        .padding(.horizontal, self.padding)
         .onTapGesture {
             withAnimation {
                 self.viewModel.isPasswordValid = true
@@ -152,12 +86,12 @@ struct RegistrationView: View {
         Button(
             action: {
                 
-                self.viewModel.validateUserData(self.email,
-                                                self.password,
-                                                self.userName,
-                                                self.fullName)
+                self.viewModel.validateEmailAndPassword(
+                    self.email,
+                    self.password
+                )
                 
-                if self.viewModel.isUserDataValid {
+                if self.viewModel.emailAndPasswordValid {
                     
                     self.viewModel.register(
                         newUser:
@@ -165,7 +99,7 @@ struct RegistrationView: View {
                                 email: self.email,
                                 password: self.password,
                                 image: self.selectedImage,
-                                fullName: self.fullName,
+                                fullName: self.fullname,
                                 userName: self.userName
                             )
                     )
@@ -185,40 +119,13 @@ struct RegistrationView: View {
         )
     }
     
-    private var signInField: some View {
-        Button(
-            action: {
-                self.mode.wrappedValue.dismiss()
-            },
-            label: {
-                HStack {
-                    Text("Already have an account?")
-                        .font(.system(size: 14))
-                    Text("Sign In")
-                        .font(.system(size: 14, weight: .semibold))
-                }
-                .foregroundColor(.white)
-            }
-        )
-        .padding(.bottom, 22.0)
-    }
-    
     private func makeErrorView(with text: String) -> some View {
         ErrorTextView(text: text)
             .padding(.horizontal, 24.0)
     }
 }
 
-// MARK: - Extension
-extension RegistrationView {
-    
-    func loadImage() {
-        guard let selectedImage = self.selectedImage else { return }
-        self.image = Image(uiImage: selectedImage)
-    }
-}
-
 // MARK: - Preview
 #Preview {
-    RegistrationView()
+    RegistrationView(userName: "marianna_2024", fullname: "Marianna Franchesco", selectedImage: nil)
 }
