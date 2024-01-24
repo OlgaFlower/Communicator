@@ -37,20 +37,20 @@ struct RegistrationFirstStepView: View {
                 self.addImageView
                 Spacer()
                 
-                VStack(spacing: 12.0) {
+                VStack(alignment: .leading, spacing: 12.0) {
                     self.usernameField
                     if !self.viewModel.isUsernameValid {
-                        ErrorTextView(text: ErrorMessages.usernameNotValid.text)
+                        self.makeErrorView(with: ErrorMessages.usernameNotValid.text)
                     }
                     
                     self.fullNameField
                     if !self.viewModel.isFullnameValid {
-                        ErrorTextView(text: ErrorMessages.fullnameNotValid.text)
+                        self.makeErrorView(with: ErrorMessages.fullnameNotValid.text)
                     }
                 }
                 
                 VStack(spacing: 4.0) {
-                    NavigationLink(destination: RegistrationView(
+                    NavigationLink(destination: RegistrationSecondStepView(
                         userName: self.userName,
                         fullname: self.fullName,
                         selectedImage: self.selectedImage
@@ -60,6 +60,7 @@ struct RegistrationFirstStepView: View {
                     .hidden()
                     
                     self.nextButtonView
+                        .padding(.top, 4.0)
                     
                     Spacer()
                     self.signInField
@@ -193,7 +194,7 @@ struct RegistrationFirstStepView: View {
     
     private func makeErrorView(with text: String) -> some View {
         ErrorTextView(text: text)
-            .padding(.horizontal, 24.0)
+            .padding(.horizontal, 26.0)
     }
 }
 

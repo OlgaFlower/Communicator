@@ -1,5 +1,5 @@
 //
-//  RegistrationView.swift
+//  RegistrationSecondStepView.swift
 //  Communicator
 //
 //  Created by Olha Bereziuk on 20.11.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegistrationView: View {
+struct RegistrationSecondStepView: View {
     
     // MARK: - Properties
     @Environment(\.presentationMode) var mode
@@ -32,24 +32,28 @@ struct RegistrationView: View {
         ZStack {
             BackgroundGradientView()
             
-                VStack(spacing: 12.0) {
-                    
+            VStack {
+                Spacer()
+                
+                VStack(alignment: .leading, spacing: 12.0) {
                     self.emailField
                     if !self.viewModel.isEmailValid {
-                        ErrorTextView(text: ErrorMessages.emailFailedValidation.text)
+                        self.makeErrorView(with: ErrorMessages.emailFailedValidation.text)
                     }
                     
                     self.passwordField
                     if !self.viewModel.isPasswordValid {
-                        ErrorTextView(text: ErrorMessages.passwordFailedValidation.text)
+                        self.makeErrorView(with: ErrorMessages.passwordFailedValidation.text)
                     }
-                    
-                    self.signUpButtonView
-                        .padding(.top, 4.0)
                 }
-                .padding(.top, 10)
+                
+                VStack(spacing: 4.0) {
+                    self.signUpButtonView
+                }
+                .padding(.bottom, 80.0)
                 Spacer()
             }
+        }
     }
     
     // MARK: - Views
@@ -121,11 +125,11 @@ struct RegistrationView: View {
     
     private func makeErrorView(with text: String) -> some View {
         ErrorTextView(text: text)
-            .padding(.horizontal, 24.0)
+            .padding(.horizontal, 26.0)
     }
 }
 
 // MARK: - Preview
 #Preview {
-    RegistrationView(userName: "marianna_2024", fullname: "Marianna Franchesco", selectedImage: nil)
+    RegistrationSecondStepView(userName: "marianna_2024", fullname: "Marianna Franchesco", selectedImage: nil)
 }
