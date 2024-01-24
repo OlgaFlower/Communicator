@@ -18,7 +18,6 @@ struct ErrorTextView: View {
         Text(text)
             .font(.system(size: 14))
             .foregroundColor(CustomColor.red)
-        
     }
 }
 

@@ -18,6 +18,12 @@ class AuthViewModel: ObservableObject {
     @Published var loginCredentialsValid = true
     @Published var isEmailValid = true
     @Published var isPasswordValid = true
+    @Published var isUsernameValid = true
+    @Published var isFullnameValid = true
+    
+    var isUserDataValid: Bool {
+        return isEmailValid && isPasswordValid && isUsernameValid && isFullnameValid
+    }
     
     static let shared = AuthViewModel()
     
@@ -49,14 +55,14 @@ class AuthViewModel: ObservableObject {
         
         ImageUploader.uploadImage(image: newUser.image, type: .profile) { imageUrl in
             Auth.auth().createUser(withEmail: newUser.email, password: newUser.password) { result, error in
+                
                 if let error = error {
                     // TODO: - Handle error
                     print("DEBUG: User registering failed \(error.localizedDescription)")
                     return
                 }
-                guard let user = result?.user else { return }
                 
-                print("Successfully registered user...")
+                guard let user = result?.user else { return }
                 
                 let data = ["email" : newUser.email,
                             "userName" : newUser.userName,
@@ -107,9 +113,16 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func validateEmailAndPassword(_ email: String, _ password: String) {
-            self.isEmailValid = self.validateEmail(email)
-        }
+    func validateUserData(_ email: String, 
+                          _ password: String,
+                          _ username: String,
+                          _ fullname: String) {
+        
+        self.isEmailValid = self.validateEmail(email)
+        self.isPasswordValid = self.validatePassword(password)
+        self.isUsernameValid = username.count >= 3
+        self.isFullnameValid = fullname.count >= 1
+    }
 }
 
 // MARK: - Validation
@@ -119,5 +132,11 @@ extension AuthViewModel {
         let emailRegex = #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
+    }
+    
+    private func validatePassword(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordPredicate.evaluate(with: password)
     }
 }

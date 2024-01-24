@@ -152,9 +152,12 @@ struct RegistrationView: View {
         Button(
             action: {
                 
-                self.viewModel.validateEmailAndPassword(self.email, self.password)
+                self.viewModel.validateUserData(self.email,
+                                                self.password,
+                                                self.userName,
+                                                self.fullName)
                 
-                if self.viewModel.isEmailValid, self.viewModel.isPasswordValid {
+                if self.viewModel.isUserDataValid {
                     
                     self.viewModel.register(
                         newUser:
@@ -167,7 +170,6 @@ struct RegistrationView: View {
                             )
                     )
                 }
-                
             },
             label: {
                 Text("Sign Up")
@@ -199,6 +201,11 @@ struct RegistrationView: View {
             }
         )
         .padding(.bottom, 22.0)
+    }
+    
+    private func makeErrorView(with text: String) -> some View {
+        ErrorTextView(text: text)
+            .padding(.horizontal, 24.0)
     }
 }
 
