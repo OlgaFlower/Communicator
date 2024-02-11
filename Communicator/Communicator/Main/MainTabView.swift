@@ -15,8 +15,11 @@ struct MainTabView: View {
     
     // MARK: - Body
     var body: some View {
+        
         NavigationView {
             TabView(selection: self.$selectedIndex) {
+                
+                // MARK: Feed
                 FeedView()
                     .onTapGesture {
                         self.selectedIndex = 0
@@ -26,6 +29,7 @@ struct MainTabView: View {
                     }
                     .tag(0)
                 
+                // MARK: Explore
                 SearchView()
                     .onTapGesture {
                         self.selectedIndex = 1
@@ -35,6 +39,7 @@ struct MainTabView: View {
                     }
                     .tag(1)
                 
+                // MARK: New Post
                 UploadPostView(tabIndex: $selectedIndex)
                     .onTapGesture {
                         self.selectedIndex = 2
@@ -44,6 +49,7 @@ struct MainTabView: View {
                     }
                     .tag(2)
                 
+                // MARK: Notifications
                 NotificationsView()
                     .onTapGesture {
                         self.selectedIndex = 3
@@ -53,6 +59,7 @@ struct MainTabView: View {
                     }
                     .tag(3)
                 
+                // MARK: Profile
                 ProfileView(user: self.user)
                     .onTapGesture {
                         self.selectedIndex = 4
@@ -62,12 +69,19 @@ struct MainTabView: View {
                     }
                     .tag(4)
             }
-            .navigationTitle(self.tabTitle)
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.automatic)
             .toolbarRole(.browser)
+            .navigationBarItems(
+                leading:
+                    Text("Communicator")
+                    .font(
+                        .custom("SavoyeLetPlain", size: 40)
+                    )
+                    .padding(.top, 4)
+            )
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    self.logoutButton
+                ToolbarItem(placement: .topBarTrailing) {
+                    self.menuButton
                 }
             }
             .accentColor(.black)
@@ -82,15 +96,12 @@ struct MainTabView: View {
         })
     }
     
-    private var tabTitle: String {
-        switch self.selectedIndex {
-        case 0: return "Feed"
-        case 1: return "Explore"
-        case 2: return "New Post"
-        case 3: return "Notifications"
-        case 4: return "Profile"
-        default: return ""
-        }
+    private var menuButton: some View {
+        Button(action: {
+            print("menu tapped")
+        }, label: {
+            Image("hamburger")
+        })
     }
 }
 

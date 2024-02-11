@@ -37,7 +37,3 @@ struct PostGridView: View {
         })
     }
 }
-
-//#Preview {
-//    PostGridView()
-//}
