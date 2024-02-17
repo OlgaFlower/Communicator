@@ -32,7 +32,6 @@ struct ResetPasswordView: View {
             
             VStack {
                 
-                
                 CustomTextField(text: $email, placeholder: "Email", iconName: "envelope")
                     .padding(.horizontal, self.padding)
                 

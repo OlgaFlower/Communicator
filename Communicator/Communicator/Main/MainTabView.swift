@@ -11,6 +11,7 @@ struct MainTabView: View {
     
     // MARK: - Properties
     @Binding var selectedIndex: Int
+    @State var showMenu = false
     let user: User
     
     // MARK: - Body
@@ -69,7 +70,7 @@ struct MainTabView: View {
                     }
                     .tag(4)
             }
-            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbarRole(.browser)
             .navigationBarItems(
                 leading:
@@ -98,10 +99,13 @@ struct MainTabView: View {
     
     private var menuButton: some View {
         Button(action: {
-            print("menu tapped")
+            self.showMenu.toggle()
         }, label: {
             Image("hamburger")
         })
+        .sheet(isPresented: self.$showMenu) {
+            MenuView()
+        }
     }
 }
 

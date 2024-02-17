@@ -9,14 +9,11 @@ import SwiftUI
 
 struct SeparatorView: View {
     
-    // MARK: - Properties
-    private var separatorWidth = UIScreen.main.bounds.width
-    
     // MARK: - Body
     var body: some View {
         Rectangle()
             .foregroundColor(Color(.separator))
-            .frame(width: self.separatorWidth, height: 0.75)
+            .frame(height: 0.75)
     }
 }
 

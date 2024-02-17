@@ -16,7 +16,7 @@ struct FeedView: View {
     // MARK: - Body
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 32.0) {
+            LazyVStack(spacing: 24.0) {
                 ForEach(self.viewModel.posts) { post in
                     FeedCell(viewModel: FeedCellViewModel(post: post))
                 }
