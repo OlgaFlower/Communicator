@@ -26,7 +26,7 @@ struct MainTabView: View {
                         self.selectedIndex = 0
                     }
                     .tabItem {
-                        Image(systemName: "house")
+                        Image("home")
                     }
                     .tag(0)
                 
@@ -36,7 +36,7 @@ struct MainTabView: View {
                         self.selectedIndex = 1
                     }
                     .tabItem {
-                        Image(systemName: "magnifyingglass")
+                        Image("magnifier")
                     }
                     .tag(1)
                 
@@ -46,7 +46,7 @@ struct MainTabView: View {
                         self.selectedIndex = 2
                     }
                     .tabItem {
-                        Image(systemName: "plus.square")
+                        Image("add")
                     }
                     .tag(2)
                 
@@ -56,7 +56,7 @@ struct MainTabView: View {
                         self.selectedIndex = 3
                     }
                     .tabItem {
-                        Image(systemName: "heart")
+                        Image("heart")
                     }
                     .tag(3)
                 
@@ -66,7 +66,7 @@ struct MainTabView: View {
                         self.selectedIndex = 4
                     }
                     .tabItem {
-                        Image(systemName: "person")
+                        Image("profile")
                     }
                     .tag(4)
             }
